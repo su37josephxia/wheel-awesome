@@ -26,3 +26,8 @@ describe('Express 实现', () => {
     const { compose } = require('../express')
     test(compose)
 })
+
+describe('Strategy 责任链实现', () => {
+    const { compose } = require('../strategy')
+    test(compose)
+  })
