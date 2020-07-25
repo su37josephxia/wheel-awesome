@@ -1,4 +1,9 @@
 const test = require('../test-case')
+describe('Koa reduce实现', () => {
+    const { compose } = require('../koa/koa-reduce')
+    test(compose)
+})
+
 describe('Koa 递归实现', () => {
     const { compose } = require('../koa')
     test(compose)
