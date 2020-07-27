@@ -32,7 +32,7 @@ describe('Express 实现', () => {
     test(compose)
 })
 
-describe('Strategy 责任链实现', () => {
-    const { compose } = require('../strategy')
+describe('Chain of Responsibility Pattern 责任链模式实现', () => {
+    const { compose } = require('../chain-of-responsibility-pattern')
     test(compose)
   })

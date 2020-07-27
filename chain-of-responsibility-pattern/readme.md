@@ -1,5 +1,8 @@
+### 代码注释
+```js
 class Handle {
   constructor(middlewareFn) {
+    // 一般抽象类会定义一个抽象method,来规范子类处理请求的操作，js允许参数传递函数
     this.myMiddlewareFn = middlewareFn
     // 下一个责任点
     this.next = null
@@ -34,7 +37,7 @@ module.exports.compose = middlewares => {
     function innerFn(currentHandle) {
       // !增加判断,因为 TypeError: Cannot read property 'myMiddlewareFn' of null
       if (!currentHandle) {
-        return Promise.resolve
+        return 
       }
       return Promise.resolve(
         // next => {
@@ -48,3 +51,5 @@ module.exports.compose = middlewares => {
     }
   }
 }
+
+```
