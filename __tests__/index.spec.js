@@ -31,3 +31,8 @@ describe('Express 实现', () => {
     const { compose } = require('../express')
     test(compose)
 })
+
+describe('Chain of Responsibility Pattern 责任链模式实现', () => {
+    const { compose } = require('../chain-of-responsibility-pattern')
+    test(compose)
+  })
