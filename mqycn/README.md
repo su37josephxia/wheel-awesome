@@ -12,6 +12,7 @@
 
 自己造的轮子，代码如有雷同，纯属巧合。
 
+第一版：
 ```javascript
 module.exports.compose = (middlewares) => {
   const next = async () => {
@@ -23,7 +24,22 @@ module.exports.compose = (middlewares) => {
 };
 ```
 
+大力出bug，不能直接操作 middlewares，先复制一份否则第二次执行就没有中间件了
 
+第二版：
+```javascript
+module.exports.compose = (middlewares) => {
+  const _middlewares = [...middlewares];
+  const next = async () => {
+    if (middlewares.length > 0) {
+      return await middlewares.shift()(next);
+    }
+  };
+  return () => next();
+};
+```
+
+这样就和express的实现很像了，我还以为自己造了个牛X的轮子害羞。。。
 
 ## 相关的故事
 

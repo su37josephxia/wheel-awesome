@@ -3,9 +3,10 @@
 // 估计是代码量最少的实现方法
 
 module.exports.compose = (middlewares) => {
+  const _middlewares = [...middlewares];
   const next = async () => {
-    if (middlewares.length > 0) {
-      return await middlewares.shift()(next);
+    if (_middlewares.length > 0) {
+      return await _middlewares.shift()(next);
     }
   };
   return () => next();
