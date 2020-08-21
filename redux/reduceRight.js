@@ -1,3 +1,10 @@
-module.exports.compose = middlewares => {
-    return () => middlewares.reduceRight((a, b) => () => b(a), () => {})();
-}
+module.exports.compose = (middlewares) => {
+    if (!Array.isArray(middlewares)) {
+        middlewares = Array.from(arguments);
+    }
+    return () =>
+        middlewares.reduceRight(
+            (a, b) => () => b(a),
+            () => {}
+        )();
+};
