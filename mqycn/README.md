@@ -28,14 +28,16 @@ module.exports.compose = (middlewares) => {
 
 第二版：
 ```javascript
-module.exports.compose = (middlewares) => {
-  const _middlewares = [...middlewares];
+module.exports.compose = function (middlewares) {
   const next = async () => {
-    if (middlewares.length > 0) {
-      return await middlewares.shift()(next);
+    if (_middlewares.length > 0) {
+      return await _middlewares.shift()(next);
     }
   };
-  return () => next();
+  return async () => {
+    _middlewares = [...middlewares]
+    return await next()
+  };
 };
 ```
 
