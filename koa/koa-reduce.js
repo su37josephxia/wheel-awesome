@@ -5,12 +5,12 @@ module.exports.compose = middlewares => () => {
   for (const fn of middlewares) {
     if (typeof fn !== 'function') throw new TypeError('Middleware must be composed of functions!')
   }
-  if(middlewares.length === 0) {
+  if (middlewares.length === 0) {
     return Promise.resolve()
-  } else if(middlewares.length === 1) {
+  } else if (middlewares.length === 1) {
     return Promise.resolve(middlewares[0].call(null, () => Promise.resolve()))
   } else {
     // compose reduce实现
-    return middlewares.reverse().reduce((pre, cur) => () => cur(() => pre(() => {})))()
+    return middlewares.map(item => item).reverse().reduce((pre, cur) => () => cur(() => pre(() => { })))()
   }
 }
