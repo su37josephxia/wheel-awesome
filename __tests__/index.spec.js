@@ -46,3 +46,8 @@ describe('20期学员 mqycn', () => {
     const { compose } = require('../mqycn/compose')
     test(compose)
 })
+
+describe('20期学员 dev2019zheng', () => {
+    const { compose } = require('../generator/dev2019zheng')
+    test(compose)
+})
