@@ -9,6 +9,11 @@ describe('Koa 递归实现', () => {
     test(compose)
 })
 
+describe('Koa class实现', () => {
+    const { compose } = require('../koa/koa-class')
+    test(compose)
+})
+
 describe('Redux reduce实现', () => {
     const { compose } = require('../redux/reduce')
     test(compose)
