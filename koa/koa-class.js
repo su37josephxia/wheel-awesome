@@ -1,24 +1,32 @@
-class Compose {
-  constructor(options) {
-    this.middlewares = options
+class ComposeClass {
+  constructor() {
+    this.middlewares = []
     this.index = 0
-    this.handle(this.index)
   }
+
+  middleware (middlewares) {
+    this.middlewares = middlewares
+    return this.dispatch(this.index)
+  } 
   
-  handle (index) {
-    const middleware = this.middlewares[index]
-    if (!middleware) return
-    this.index = index + 1
-    middleware(this.next.bind(this))
+  dispatch (index) {
+    const fn = this.middlewares[index]
+    if (!fn) {
+      return Promise.resolve()
+    }
+    this.index += 1
+    return Promise.resolve(
+      fn(this.next.bind(this))
+    )
   }
 
   next() {
-    return Promise.resolve(
-      this.handle(this.index)
-    )
+    return this.dispatch(this.index)
   }
 }
 
 module.exports.compose = (middlewares) => {
-  return () => { new Compose(middlewares) }
+  return () => {
+    return new ComposeClass().middleware(middlewares)
+  }
 }
