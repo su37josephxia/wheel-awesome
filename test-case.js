@@ -1,3 +1,5 @@
+const viewLog = false //出现问题，设置为true可追踪函数和输出
+
 module.exports = compose => {
     it('同步函数', async () => {
         const mockFn = jest.fn()
@@ -14,14 +16,26 @@ module.exports = compose => {
                 mockFn('2 end')
             }
         ]
-        compose(middlewares)()
+        const func = compose(middlewares)
 
+        viewLog && console.log('同步函数 > compose定义', compose.toString());
+
+        func();
         const calls = mockFn.mock.calls
+        viewLog && console.log('第一次', calls);
         expect(calls.length).toBe(4);
         expect(calls[0][0]).toBe('1 start');
         expect(calls[1][0]).toBe('2 start');
         expect(calls[2][0]).toBe('2 end');
         expect(calls[3][0]).toBe('1 end');
+
+        func();
+        viewLog && console.log('第二次', calls);
+        expect(calls.length).toBe(8);
+        expect(calls[4][0]).toBe('1 start');
+        expect(calls[5][0]).toBe('2 start');
+        expect(calls[6][0]).toBe('2 end');
+        expect(calls[7][0]).toBe('1 end');
     })
 
     it('异步函数', async () => {
@@ -40,14 +54,27 @@ module.exports = compose => {
                 mockFn('2 end')
             }
         ]
-        await compose(middlewares)()
 
+        const func = compose(middlewares)
+
+        viewLog && console.log('异步函数 > compose定义', compose.toString());
+
+        await func();
         const calls = mockFn.mock.calls
+        viewLog && console.log('第一次', calls);
         expect(calls.length).toBe(4);
         expect(calls[0][0]).toBe('1 start');
         expect(calls[1][0]).toBe('2 start');
         expect(calls[2][0]).toBe('2 end');
         expect(calls[3][0]).toBe('1 end');
+
+        await func();
+        viewLog && console.log('第二次', calls);
+        expect(calls.length).toBe(8);
+        expect(calls[4][0]).toBe('1 start');
+        expect(calls[5][0]).toBe('2 start');
+        expect(calls[6][0]).toBe('2 end');
+        expect(calls[7][0]).toBe('1 end');
     })
     it('0个函数', async () => {
         const mockFn = jest.fn()
