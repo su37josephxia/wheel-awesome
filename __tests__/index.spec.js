@@ -50,3 +50,7 @@ describe('20期学员 mqycn', () => {
     const { compose } = require('../mqycn/compose')
     test(compose)
 })
+describe('stack-compose 测试',()=>{
+    const { compose } = require('../stack-compose/index.js');
+    test(compose)
+})
