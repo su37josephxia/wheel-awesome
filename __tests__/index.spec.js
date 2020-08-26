@@ -40,6 +40,11 @@ describe('Express 实现', () => {
 describe('Chain of Responsibility Pattern 责任链模式实现', () => {
     const { compose } = require('../chain-of-responsibility-pattern')
     test(compose)
+
+})
+
+describe('Redux reduce Promise实现', () => {
+    const { compose } = require('../redux/reduce-Promise')
   })
 
 describe('使用链表结构 责任链模式实现', () => {
