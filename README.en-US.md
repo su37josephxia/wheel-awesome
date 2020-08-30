@@ -13,10 +13,10 @@ Linus Torvalds, the founder of Linux, mentioned in an email to the linux-kernel 
 > - [Chain of Responsibility Mode](https://blog.csdn.net/liuwenzhe2008/article/details/70199520)
 
 
-#### No1:[Express By recursion](https://github.com/su37josephxia/compose-awesome/blob/master/express/index.js)
+#### No1:[Express By Recursion](https://github.com/su37josephxia/compose-awesome/blob/master/express/index.js)
 
 
-#### No2:[Koa By recursion](https://github.com/GeekQiaQia/compose-awesome/blob/master/koa/index.js)
+#### No2:[Koa By Recursion](https://github.com/GeekQiaQia/compose-awesome/blob/master/koa/index.js)
 
 
 #### No3:[Koa By Reduce](https://github.com/su37josephxia/compose-awesome/blob/master/koa/koa-reduce.js)
@@ -37,7 +37,7 @@ Linus Torvalds, the founder of Linux, mentioned in an email to the linux-kernel 
 #### No8:[Chain of Responsibility Pattern ](https://github.com/su37josephxia/compose-awesome/blob/master/chain-of-responsibility-pattern/index.js)
 
 
-#### No9:[By List](https://github.com/su37josephxia/compose-awesome/blob/master/stack-compose/index.js)
+#### No9:[By List && Recursion](https://github.com/su37josephxia/compose-awesome/blob/master/stack-compose/index.js)
 
 
  
