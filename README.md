@@ -36,7 +36,7 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
 #### No8:[Chain of Responsibility Pattern 责任链模式实现](https://github.com/su37josephxia/compose-awesome/blob/master/chain-of-responsibility-pattern/index.js)
 
 
-#### No9:[List 通过列表实现](https://github.com/su37josephxia/compose-awesome/blob/master/stack-compose/index.js)
+#### No9:[List 通过列表递归实现](https://github.com/su37josephxia/compose-awesome/blob/master/stack-compose/index.js)
 
 
  
