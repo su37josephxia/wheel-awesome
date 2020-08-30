@@ -13,31 +13,31 @@ Linus Torvalds, the founder of Linux, mentioned in an email to the linux-kernel 
 > - [Chain of Responsibility Mode](https://blog.csdn.net/liuwenzhe2008/article/details/70199520)
 
 
-#### No1:[Express 递归实现](https://github.com/su37josephxia/compose-awesome/blob/master/express/index.js)
+#### No1:[Express By recursion](https://github.com/su37josephxia/compose-awesome/blob/master/express/index.js)
 
 
-#### No2:[Koa 递归实现](https://github.com/GeekQiaQia/compose-awesome/blob/master/koa/index.js)
+#### No2:[Koa By recursion](https://github.com/GeekQiaQia/compose-awesome/blob/master/koa/index.js)
 
 
-#### No3:[Koa Reduce实现](https://github.com/su37josephxia/compose-awesome/blob/master/koa/koa-reduce.js)
+#### No3:[Koa By Reduce](https://github.com/su37josephxia/compose-awesome/blob/master/koa/koa-reduce.js)
 
 
-#### No4:[Koa Class实现](https://github.com/su37josephxia/compose-awesome/blob/master/koa/koa-class.js)
+#### No4:[Koa By Class](https://github.com/su37josephxia/compose-awesome/blob/master/koa/koa-class.js)
 
 
-#### No5:[Redux Reduce实现](https://github.com/su37josephxia/compose-awesome/blob/master/redux/reduce.js)
+#### No5:[Redux By Reduce](https://github.com/su37josephxia/compose-awesome/blob/master/redux/reduce.js)
 
 
-#### No6:[Redux ReduceRight实现](https://github.com/su37josephxia/compose-awesome/blob/master/redux/reduceRight.js)
+#### No6:[Redux By ReduceRight](https://github.com/su37josephxia/compose-awesome/blob/master/redux/reduceRight.js)
 
 
-#### No7:[Redux ReduceRight Promise实现](https://github.com/su37josephxia/compose-awesome/blob/master/redux/reducePromise.js)
+#### No7:[Redux By ReduceRight with Promise Function](https://github.com/su37josephxia/compose-awesome/blob/master/redux/reducePromise.js)
 
 
-#### No8:[Chain of Responsibility Pattern 责任链模式实现](https://github.com/su37josephxia/compose-awesome/blob/master/chain-of-responsibility-pattern/index.js)
+#### No8:[Chain of Responsibility Pattern ](https://github.com/su37josephxia/compose-awesome/blob/master/chain-of-responsibility-pattern/index.js)
 
 
-#### No9:[List 通过列表实现](https://github.com/su37josephxia/compose-awesome/blob/master/stack-compose/index.js)
+#### No9:[By List](https://github.com/su37josephxia/compose-awesome/blob/master/stack-compose/index.js)
 
 
  
