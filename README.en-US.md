@@ -16,7 +16,7 @@ Linus Torvalds, the founder of Linux, mentioned in an email to the linux-kernel 
 #### No1:[Express By Recursion](https://github.com/su37josephxia/compose-awesome/blob/master/express/index.js)
 
 
-#### No2:[Koa By Recursion](https://github.com/GeekQiaQia/compose-awesome/blob/master/koa/index.js)
+#### No2:[Koa By Recursion](https://github.com/su37josephxia/compose-awesome/blob/master/koa/index.js)
 
 
 #### No3:[Koa By Reduce](https://github.com/su37josephxia/compose-awesome/blob/master/koa/koa-reduce.js)
