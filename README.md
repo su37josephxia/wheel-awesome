@@ -15,7 +15,7 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
 #### No1:[express 递归实现](https://github.com/su37josephxia/compose-awesome/blob/master/express/index.js)
 
 
-#### No2:[Koa 递归实现](https://github.com/GeekQiaQia/compose-awesome/blob/master/koa/index.js)
+#### No2:[Koa 递归实现](https://github.com/su37josephxia/compose-awesome/blob/master/koa/index.js)
 
 
 #### No3:[Koa Reduce实现](https://github.com/su37josephxia/compose-awesome/blob/master/koa/koa-reduce.js)
