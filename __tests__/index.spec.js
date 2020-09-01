@@ -45,7 +45,7 @@ describe('Chain of Responsibility Pattern 责任链模式实现', () => {
 
 describe('Redux reduce Promise实现', () => {
     const { compose } = require('../redux/reduce-Promise')
-  })
+})
 
 describe('使用链表结构 责任链模式实现', () => {
     const { compose } = require('../oop')
@@ -55,7 +55,12 @@ describe('20期学员 mqycn', () => {
     const { compose } = require('../mqycn/compose')
     test(compose)
 })
-describe('stack-compose 测试',()=>{
+describe('stack-compose 测试', () => {
     const { compose } = require('../stack-compose/index.js');
+    test(compose)
+})
+
+describe('async 测试', () => {
+    const { compose } = require('../async/index.js');
     test(compose)
 })
