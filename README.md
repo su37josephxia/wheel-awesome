@@ -1,6 +1,6 @@
 简体中文| [English](./README.en-US.md)
 
-# Compose 的 N 种姿势
+# Compose 的 N 种风骚姿势
 
 ## ![Talk is cheap. Show me the code.](assets/talk.jpeg)
 
