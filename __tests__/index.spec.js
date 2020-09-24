@@ -64,3 +64,8 @@ describe('async 测试', () => {
     const { compose } = require('../async/index.js');
     test(compose)
 })
+
+describe('ES6 Generator实现', () => {
+    const { compose } = require('../generator/index.js')
+    test(compose)
+})
