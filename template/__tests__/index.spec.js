@@ -24,4 +24,14 @@ describe("模板编译", () => {
 
 `);
   });
+
+
+  it("if 表达式", () => {
+    const output = compile(`{% if(isShow) { %} <b>{{ name }}</b> {% } %}`
+       )({ isShow:true ,name: "tom" });
+    expect(output).toBe(
+`
+ <b>tom</b> 
+`);
+  });
 });

@@ -11,7 +11,7 @@ module.exports.compile = (template) => {
   });
 
   let tail = "`}\r\n return str;";
-//   console.log(`==========render=========`)
-//   console.log(head + template + tail);
+  console.log(`==========render=========`)
+  console.log(head + template + tail);
   return new Function("obj", head + template + tail);
 };
