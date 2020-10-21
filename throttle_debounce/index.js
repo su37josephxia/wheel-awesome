@@ -3,30 +3,28 @@
  */
 module.exports.throttle = (fn, delay) => {
   // 定义上次触发时间
-  let timeOut;
+  let time
   return (...args) => {
-    if(!timeOut) {
-      timeOut = setTimeout(() => {
-        timeOut = null
+    if(!time) {
+      time = setTimeout(() => {
+        time = null
         fn.call(this, ...args)
       }, delay)
     }
-
   }
 };
 /**
  * 防抖Debounce
  */
 module.exports.debounce = (fn, delay) => {
-  let timer;
+  let timer
   return (...args) => {
-    // 判断定时器是否存在，清除定时器
     if(timer) {
       clearTimeout(timer)
     }
 
     timer = setTimeout(() => {
-      fn.call(this,...args)
+      fn.call(this, ...args)
     }, delay)
-  }; 
+  }
 };
