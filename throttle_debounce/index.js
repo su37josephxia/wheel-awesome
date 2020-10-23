@@ -3,7 +3,7 @@
  */
 module.exports.throttle = (fn, delay) => {
   // 定义上次触发时间
-  let time
+  let time 
   return (...args) => {
     if(!time) {
       time = setTimeout(() => {
@@ -17,13 +17,13 @@ module.exports.throttle = (fn, delay) => {
  * 防抖Debounce
  */
 module.exports.debounce = (fn, delay) => {
-  let timer
+  let time 
   return (...args) => {
-    if(timer) {
-      clearTimeout(timer)
-    }
+    if(time) {
+      clearTimeout(time)
+    } 
 
-    timer = setTimeout(() => {
+    time = setTimeout(() => {
       fn.call(this, ...args)
     }, delay)
   }
