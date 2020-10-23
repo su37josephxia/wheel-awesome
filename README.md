@@ -2,8 +2,9 @@
 
 # 每天造轮子系列
 
-## ![Talk is cheap. Show me the code.](assets/talk.jpeg)
+## Talk is cheap. Show me the code.
 
+![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3556bd78c0004d7598181c02659b35b8~tplv-k3u1fbpfcp-watermark.image)
 Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表的一封邮件提到的：
 
 ### 口说无凭，代码为证。
@@ -13,23 +14,22 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
 ## 
 
 ## 关注公众号 持续推进
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1ea42e280914c58a74efff57ac899f4~tplv-k3u1fbpfcp-watermark.image)
 
-![image-20201016171059721](assets/image-20201016171059721.png)
 
 ## 钉钉交流群
 
-![image-20201016171318330](assets/image-20201016171318330.png)
+![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d804cf7defbd47d183ffe2c2546c8594~tplv-k3u1fbpfcp-watermark.image)
 
 
 
 
 ## 造轮子计划
 - 框架
-  - 模板引擎
-  - Pipe管道
-  - 防抖
-  - 节流
-  - 双向绑定
+  - [模板引擎](./template)
+  - [防抖与节流](./reactivity)
+  - [响应式原理](./reactivity)
+  - [统一状态管理](./state/container)
   - 原生Ajax
 - JS基础
   - Compose
