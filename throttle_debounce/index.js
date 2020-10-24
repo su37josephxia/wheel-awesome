@@ -3,16 +3,22 @@
  */
 module.exports.throttle = (fn, delay) => {
   // 定义上次触发时间
-  let last = 0;
+  let last = 0, isExecute = 0;
   return (...args) => {
     const now = + Date.now();
     console.log("call", now, last, delay);
     if (now > last + delay) {
       last = now;
-      fn.apply(this, args);
+
+      if ( !isExecute) {
+        fn.apply(this, args);
+        isExecute = 1;
+      }
+      
     }
   };
 };
+
 /**
  * 防抖Debounce
  */
