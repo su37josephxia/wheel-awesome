@@ -113,14 +113,19 @@ throttle实际是一个工厂函数，可以将一个函数封装为一个带有
 
 ```js
 module.exports.throttle = (fn, delay) => {
-  // 定义上次触发时间
-  let last = 0;
+  // 定义上次触发时间, isExecute: 在规定时间是否已执行，防止多次调用的二次执行
+  let last = 0, isExecute = 0;
   return (...args) => {
     const now = + Date.now();
     console.log("call", now, last, delay);
     if (now > last + delay) {
       last = now;
-      fn.apply(this, args);
+
+      if ( !isExecute) {
+        fn.apply(this, args);
+        isExecute = 1;
+      }
+      
     }
   };
 };

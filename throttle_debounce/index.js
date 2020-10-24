@@ -2,7 +2,7 @@
  * 节流Throttle
  */
 module.exports.throttle = (fn, delay) => {
-  // 定义上次触发时间
+  // 定义上次触发时间, isExecute: 在规定时间是否已执行，防止多次调用的二次执行
   let last = 0, isExecute = 0;
   return (...args) => {
     const now = + Date.now();
