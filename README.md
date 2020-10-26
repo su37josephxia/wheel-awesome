@@ -37,7 +37,7 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
   - Promise.all/race
   - 路由
   - new
-  - call/apply/bind
+  - [call/apply/bind](./call apply bind)
   - Object.create
   - 深拷贝、浅拷贝
 - 算法、设计模式
