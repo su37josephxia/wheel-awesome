@@ -1,107 +1,120 @@
-# 坚持造轮子第二天 - 统一状态管理
-
-二话不说 轮子我都会造 还怕你面试问吗？
-一天造一个轮子，干就完了。
-
-## 看点
-- 针对大厂笔试、面试必考手写题目
-- TDD方式开发
-- 配合视频讲解
-
-
-## 造轮子计划
-（计划赶不上变化 随时迭代 欢迎留言 随时摸鱼）
-- 框架基础
-  - [模板引擎](https://juejin.im/post/6884138429181870093)
-  - 防抖
-  - 节流
-  - 前端路由
-  - 统一状态管理
-  - 时间旅行
-  - HTML编译器
-  - Pipe管道
-  - 双向绑定
-  - 原生Ajax
-- JS基础
-  - Compose
-  - Promise
-  - Promise.all/race
-  - 路由
-  - new
-  - call/apply/bind
-  - Object.create
-  - 深拷贝、浅拷贝
-- 算法、设计模式
-  - 二分查找
-  - 快排
-  - 二分查找
-  - 冒泡排序
-  - 选择排序
-  - 订阅发布
-  - 斐波那契算法
-  - 去重
-
-
-
 ## 时间旅行
 
-顾名思义，就是可以随时穿越到以前和未来，让应用程序切换到任意时间的状态。我们都知道，一般应用状态都很复杂，创建、维护、修改和弄明白有哪些行为会影响状态都不是一件容易的事儿。
+时间旅行就是让程序可以在自己历史状态里面任意穿梭，想想Office和PS软件中的Undo和Redo就知道。再想想王者荣耀的录像功能。
 
-时间旅行实际上就是设计模式中的备忘录模式。
-  
-我们把状态分为三个时间段：过去，现在（只有一个状态），将来。gotoState 函数则是用来做时间旅行的，他的实现方式就是整合所有状态 allState，重新分配，present 前面是 past，后面是 future。
+时间旅行实际上就是设计模式中的备忘录模式。这个到我们可以练习设计模式的时候再升华，先不在这里强行渡劫。
 
+首先Redux为时间旅行做了基础性工作，首先所有组件上缴了状态，地主家不存余粮,然后使用纯函数加工数据，不存在秘方和小料，保证了加工结果的可预测性。
 
+然后要做的就是找一个容器我们可以叫做历史和时间轴，把状态变更的历史存储起来。把状态分为三个时间段：
 
-
+- 过去 (过去状态数组)
+- 现在（只有一个状态）
+- 将来 (将来状态数组)
+- gotoState 函数则是用来做时间旅行的，把过去、现在、将来重新分配
 
 ## 需求
-### 1. 通过dispatch修改状态
-
-### 2. 状态变更后触发通知
+### 1. 撤销UNDO
 
 ```js
-it("基本功能 订阅通知 改变状态", () => {
-    const { createStore } = require("../index");
-    const mockFn = jest.fn();
-    const store = createStore(reducer);
+it("撤销undo ", () => {
+    const history = createHistory()
 
-    // 建立响应订阅
-    store.effect(mockFn);
-    store.dispatch({
-      type: "clear",
-    });
-    // store.dispatch({ type: "add", payload: 1 });
-
-    const calls = mockFn.mock.calls;
-
-    // 断言 mock方法只调用一次
-    expect(calls.length).toBe(1);
-    expect(store.getState().num).toBe(0);
+    history.push({num: 1})
+    history.push({num: 2})
+    history.push({num: 3})
+    history.undo()
+    expect(history.present.num).toBe(2)
   });
 ```
 
+
+
+### 2. 恢复REDO
+
+```js
+it("恢复redo ", () => {
+    const history = createHistory()
+
+    history.push({num: 1})
+    history.push({num: 2})
+    history.push({num: 3})
+    history.push({num: 4})
+    history.undo()
+    history.undo()
+    history.undo()
+    history.redo()
+    expect(history.present.num).toBe(2)
+  });
+```
+
+
+
+### 3. 定点漂移
+
+```
+it("定点回退 ", () => {
+    const history = createHistory()
+
+    history.push({num: 1})
+    history.push({num: 2})
+    history.push({num: 3})
+    history.gotoState(1)
+    expect(history.present.num).toBe(2)
+  });
+```
+
+
+
+
+
 ## 功能实现
+
 超级简单是吧 我就解释了
 
 ```js
-module.exports.createStore = (reducer, preloadedState) => {
-  let currentReducer = reducer; //reducer函数
-  let currentState = preloadedState; //默认state
-  let effective 
-  return {
-    getState() {
-      return currentState;
-    },
-    dispatch(action) {
-        currentState = currentReducer(currentState, action);
-        // 触发通知
-        effective()
-    },
-    effect(fn) {
-        effective = fn;
-    },
+module.exports = createHistory = () => {
+  const timeline = {};
+
+  timeline.past = [];
+  timeline.futrue = [];
+
+  timeline.gotoState = (index) => {
+    const allState = [...timeline.past, timeline.present, ...timeline.futrue];
+    timeline.present = allState[index];
+    timeline.past = allState.slice(0, index);
+    timeline.futrue = allState.slice(index + 1, allState.length);
   };
+
+  timeline.getIndex = () => {
+    // 获取当前状态index
+    return timeline.past.length;
+  };
+
+  // 保存当前状态
+  timeline.push = (currentState) => {
+    // 将状态都保存，并更新当前状态
+    if (timeline.present) {
+      timeline.past.push(timeline.present);
+    }
+    timeline.present = currentState;
+  };
+
+  // 后退
+  timeline.undo = () => {
+    if (timeline.past.length !== 0) {
+      timeline.gotoState(timeline.getIndex() - 1);
+    }
+  };
+
+  // 前进
+  timeline.redo = () => {
+    if (timeline.futrue.length !== 0) {
+      timeline.gotoState(timeline.getIndex() + 1);
+    }
+  };
+
+  return timeline;
 };
 
 ```
@@ -110,33 +123,9 @@ module.exports.createStore = (reducer, preloadedState) => {
 
 ## 测试
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/531a5dd783ac40bcae2b89717e9ce5bf~tplv-k3u1fbpfcp-watermark.image)
+![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73a482bd612f4e738c2ac859e16f3883~tplv-k3u1fbpfcp-watermark.image)
 
 OK 任务完成
-
-
-
-## 遗留问题 - 后续解决
-
-主要是我们拆解了和统一状态管理不强绑定的问题。
-
-### 1. 如何变更通知订阅
-
-当然这个实现订阅发布模式就行了
-
-### 2. 异步Action的处理 
-
-大概两个方案Thunk方案 和 Promise方案 这个等我们后续分别造完Thunk和 Promise轮子再说
-
-### 3. 状态日志
-
-这个需要引入中间件洋葱圈模型也就是实现责任链模式
-
-### 4. 和时间旅行
-
-这个需要实现备忘录设计模式
-
-
 
 
 
