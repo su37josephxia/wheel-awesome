@@ -1,44 +1,43 @@
+module.exports = createHistory = () => {
+  const timeline = {};
 
-module.exports.createHistory = () => {
-    
+  timeline.past = [];
+  timeline.futrue = [];
 
-         const hasRecord = (type) =>{// 查询是否有过去或者将来的状态
-            return history[type].length > 0;
-          },
-
-          const hasPresent= ()=> { // 查询是否有现在的状态
-            return history.present !== undefined;
-          },
-          
-          const movePresentToPast = () {
-            history.past.push(history.present);
-          },
-
-          const push = (currentState) => { // 将状态都保存，并更新当前状态
-            if (hasPresent()) {
-                history.past.push(history.present);
-            }
-            history.setPresent(currentState);
-          }
-
-          const getIndex = () => { // 获取当前状态index
-            return history.past.length;
-          }
-          const undo =() => { // 后退
-            if (this.hasRecord('past')) {
-              this.gotoState(history.getIndex() - 1);
-            }
-          }
-          const redo = ()=> { // 前进
-            if (this.hasRecord('futrue')) {
-              this.gotoState(history.getIndex() + 1);
-            }
-          }
-
-          const history = {
-
-        }
-
-    
-    
+  timeline.gotoState = (index) => {
+    const allState = [...timeline.past, timeline.present, ...timeline.futrue];
+    timeline.present = allState[index];
+    timeline.past = allState.slice(0, index);
+    timeline.futrue = allState.slice(index + 1, allState.length);
   };
+
+  timeline.getIndex = () => {
+    // 获取当前状态index
+    return timeline.past.length;
+  };
+
+  // 保存当前状态
+  timeline.push = (currentState) => {
+    // 将状态都保存，并更新当前状态
+    if (timeline.present) {
+      timeline.past.push(timeline.present);
+    }
+    timeline.present = currentState;
+  };
+
+  // 后退
+  timeline.undo = () => {
+    if (timeline.past.length !== 0) {
+      timeline.gotoState(timeline.getIndex() - 1);
+    }
+  };
+
+  // 前进
+  timeline.redo = () => {
+    if (timeline.futrue.length !== 0) {
+      timeline.gotoState(timeline.getIndex() + 1);
+    }
+  };
+
+  return timeline;
+};

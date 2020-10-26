@@ -1,18 +1,19 @@
-module.exports.createStore = (reducer, preloadedState) => {
-  let currentReducer = reducer; //reducer函数
-  let currentState = preloadedState; //默认state
-  let effective 
-  return {
-    getState() {
-      return currentState;
-    },
-    dispatch(action) {
-        currentState = currentReducer(currentState, action);
-        // 触发通知
-        effective()
-    },
-    effect(fn) {
-        effective = fn;
-    },
+module.exports.createStore = (reducer, initialState) => {
+  const store = {};
+  store.store = initialState;
+
+  store.getState = () => store.state
+
+  store.dispatch = (action) => {
+    store.state = reducer(store.state, action);
+
+    // 触发通知
+    store.effective && store.effective();
   };
+
+  store.effect = (fn) => {
+    store.effective = fn;
+  };
+
+  return store;
 };

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div>My background color is <span id="background"></span></div>
+    <div id="debugger">
+      <div>
+        <button id="previous">
+          previous
+        </button>
+        <button id="next">
+          next
+        </button>
+      </div>
+      <div id="timeline"></div>
+    </div>
+    <style>
+      html, body {
+        width: 100vw;
+        height: 100vh;
+      }
+      #debugger {
+        margin-top: 30px;
+      }
+    </style>
+    <script>
+      const textNode = document.getElementById('background');
+      const timelineNode = document.getElementById('timeline');
+      const createStore = (reducer, initialState) => {
+        const store = {};
+        store.state = initialState;
+        store.listeners = [];
+        store.getState = () => store.state;
+        store.subscribe = listener => {
+          store.listeners.push(listener);
+        };
+        store.dispatch = action => {
+          console.log('> Action', action);
+          store.state = reducer(store.state, action);
+          store.listeners.forEach(listener => listener());
+        };
+        return store;
+      };
+      const getInitialState = () => {
+        return {
+          r: 255,
+          g: 255,
+          b: 255,
+        };
+      };
+      const reducer = (state = getInitialState(), action) => {
+        switch (action.type) {
+          case 'SET_RGB':
+            return {
+              r: action.payload.r,
+              g: action.payload.g,
+              b: action.payload.b,
+            };
+          default:
+            return state;
+        }
+      };
+      const store = createStore(reducer);
+      const setBackgroundColor = () => {
+        const state = store.getState();
+        const { r, g, b } = state;
+        const rgb = `rgb(${r}, ${g}, ${b})`;
+        document.body.style.backgroundColor = rgb;
+        textNode.innerHTML = rgb;
+      };
+      store.subscribe(setBackgroundColor);
+      const generateRandomColor = () => {
+        return Math.floor(Math.random() * 255);
+      };
+      // 一个简单的事件用于派发数据变化
+      document.addEventListener('click', () => {
+        console.log('----- Previous state', store.getState());
+        store.dispatch({
+          type: 'SET_RGB',
+          payload: {
+            r: generateRandomColor(),
+            g: generateRandomColor(),
+            b: generateRandomColor(),
+          },
+        });
+        console.log('+++++ New state', store.getState());
+      });
+      const timeline = [];
+      let activeItem = 0;
+      const saveTimeline = () => {
+        timeline.push(store.getState());
+        timelineNode.innerHTML = timeline
+          .map(item => JSON.stringify(item))
+          .join('<br/>');
+        activeItem = timeline.length - 1;
+      };
+      store.subscribe(saveTimeline);
+      // 仅供调试
+      store.setState = desiredState => {
+        store.state = desiredState;
+        // 假设调试器（译者注：上文的 saveTimeline ）是最后被注入（到 store.listeners ）的，
+        // 我们并不想在调试时更新 timeline 中已存储的状态，所以我们把它排除掉。
+        const applicationListeners = store.listeners.slice(0, -1);
+        applicationListeners.forEach(listener => listener());
+      };
+      const previous = document.getElementById('previous');
+      const next = document.getElementById('next');
+      previous.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        let index = activeItem - 1;
+        index = index <= 0 ? 0 : index;
+        activeItem = index;
+        const desiredState = timeline[index];
+        store.setState(desiredState);
+      });
+      next.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        let index = activeItem + 1;
+        index = index >= timeline.length - 1 ? timeline.length - 1 : index;
+        activeItem = index;
+        const desiredState = timeline[index];
+        store.setState(desiredState);
+      });
+      store.dispatch({}); // 设置初始状态
+    </script>
+  </body>
+</html>
