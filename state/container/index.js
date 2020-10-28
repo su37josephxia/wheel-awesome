@@ -1,6 +1,6 @@
 module.exports.createStore = (reducer, initialState) => {
   const store = {};
-  store.store = initialState;
+  store.state = initialState;
 
   store.getState = () => store.state
 
