@@ -31,7 +31,7 @@ function reactive(data) {
         // 递归调用
         reactive(value)
         Object.defineProperty(data, key, {
-            emumerable: false,
+            enumerable: false,
             configurable: true,
             get: () => {
                 return value
