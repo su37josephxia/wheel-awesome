@@ -1,38 +1,41 @@
 /**
- * 节流Throttle
+ * 节流
+ * @param {*} fn 将执行的函数
+ * @param {*} time 节流规定的时间
  */
-module.exports.throttle = (fn, delay) => {
-  // 定义上次触发时间, isExecute: 在规定时间是否已执行，防止多次调用的二次执行
-  let last = 0, isExecute = 0;
+function throttle(fn, time) {
+  let timer = null
   return (...args) => {
-    const now = + Date.now();
-    console.log("call", now, last, delay);
-    if (now > last + delay) {
-      last = now;
-
-      if ( !isExecute) {
-        fn.apply(this, args);
-        isExecute = 1;
-      }
-      
+    // 若timer === false，则执行，并在指定时间后将timer重制
+    if(!timer){
+      fn.apply(this, args)
+  
+      timer = setTimeout(() => {
+        timer = null
+      }, time)
     }
-  };
-};
+  }
+}
 
 /**
- * 防抖Debounce
+ * 防抖
+ * @param {*} fn 将执行的函数
+ * @param {*} time 指定防抖持续时间
  */
-module.exports.debounce = (fn, delay) => {
-  let timer;
+function debounce(fn, time) {
+  let timer = null
+  
   return (...args) => {
-    // 判断定时器是否存在，清除定时器
-    if (timer) {
-      clearTimeout(timer);
+    // 重新执行并停止上次执行（若上次还未执行则会被清除）
+    if(timer){
+      clearTimeout(timer)
     }
 
-    // 重新调用setTimeout
     timer = setTimeout(() => {
-      fn.apply(this, args);
-    }, delay);
-  };
-};
+      timer = null
+      fn.apply(this, args)
+    }, time)
+  }
+}
+
+module.exports = { throttle, debounce }
