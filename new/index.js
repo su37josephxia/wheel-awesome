@@ -1,10 +1,14 @@
-function newObj (obj) {
+function newObj(obj) {
   if (!obj || !obj.prototype) {
-    throw Error('Error')
+    throw Error("Error")
   }
   const resultObj = Object.create(obj.prototype)
   const result = obj.call(resultObj)
-  return typeof result === 'object' && result !== null ? result : resultObj
+
+  const isObject = typeof result === "object" && result !== null
+  const isFunction = typeof result === "function"
+
+  return isObject || isFunction ? result : resultObj
 }
 
 module.exports = newObj
