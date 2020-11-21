@@ -13,7 +13,7 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
 
 
 
-## 关注公众号 加入钉钉交流群
+## 关注公众号 加入微信交流群
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1ea42e280914c58a74efff57ac899f4~tplv-k3u1fbpfcp-watermark.image)
 
 
