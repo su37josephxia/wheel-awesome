@@ -132,7 +132,7 @@ class FullPromise extends BasePromise {
     // 因为错误的值要让后面访问到，所以这里也要跑出个错误，不然会在之后then的resolve中捕获
     onRejected = typeof onRejected === 'function' ? onRejected : error => { throw error; };
     // 每次调用then都返回一个新的promise
-    const promise2 = new Promise((resolve, reject) => {
+    const promise2 = new FullPromise((resolve, reject) => {
       if ( this.status === FULFILLED ) {
         setTimeout(() => {
           try {
