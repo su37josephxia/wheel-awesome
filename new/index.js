@@ -1,9 +1,9 @@
-function newObj(obj) {
+function newObj(obj,...args) {
   if (!obj || !obj.prototype) {
     throw Error("Error")
   }
   const resultObj = Object.create(obj.prototype)
-  const result = obj.call(resultObj)
+  const result = obj.apply(resultObj,args)
 
   const isObject = typeof result === "object" && result !== null
   const isFunction = typeof result === "function"
