@@ -9,16 +9,22 @@ const walk = require("./walk");
  * @param {*} module
  */
 function analyse(ast, magicStirng, module) {
+  // 职责
+
   // 创建全局作用域
   let scope = new Scope();
   // 遍历当前语法树
   ast.body.forEach((statement) => {
 
-    // 给作用域内添加变量
+    /**
+     * 给作用域内添加变量
+     * @param {*} declaration
+     */
     function addToScope(declaration) {
       var name = declaration.id.name; // 获取声明的变量
       scope.add(name);
-      if (!scope.parent) { // 如果此变量作用域不在父级作用域 即当前作用域
+      if (!scope.parent) {
+        // 如果此变量作用域不在父级作用域 即当前作用域
         // 如果当前是全局作用域的话
         // 在全局作用域下声明全局变量
         statement._defines[name] = true;
@@ -26,24 +32,31 @@ function analyse(ast, magicStirng, module) {
     }
 
     Object.defineProperties(statement, {
-      _defines: { value: {} }, // 当前模块定义的所有全局变量
+      // 变量定义
+      _defines: { value: {} },
 
-      _dependsOn: { value: {} }, // 当前模块没有定义但是使用过的变量
+      // 变量依赖
+      _dependsOn: { value: {} },
 
-      _included: { value: false, writable: true }, // 此语句是否被打包 防止多次打包
+      // 此语句是否被打包Bundle 防止多次打包Bundle
+      _included: { value: false, writable: true },
 
+      // 变量语句
       _source: { value: magicStirng.snip(statement.start, statement.end) },
     });
-    // console.log('sate',statement)
-    // 投建我们的作用域链
+
+    // 作用域链遍历
+    // 分析变量定义的
+    // 构造作用域链
     walk(statement, {
       enter(node) {
         let newScope;
-        if(node === null || node.length === 0) return 
-        console.log('walk', node.type)
+        // 防止空节点和空数组
+        if (node === null || node.length === 0) return;
         switch (node.type) {
+          // 方法声明
           case "FunctionDeclaration":
-            const params = node.params.map((x) => x.name);
+            const params = node.params.map((v) => v.name);
             addToScope(node);
             // 新作用域
             newScope = new Scope({
@@ -51,15 +64,16 @@ function analyse(ast, magicStirng, module) {
               params,
             });
             break;
-
+          // 变量声明
           case "VariableDeclaration":
             node.declarations.forEach(addToScope);
             break;
         }
         if (newScope) {
+          console.log("newScope", newScope);
           // 当前节点声明的新作用域
           // 如果此节点生成一个新作用域
-          Object.defineProperties(node, "_scope", { value: newScope });
+          Object.defineProperties(node, { _scope: { value: newScope } });
           scope = newScope;
         }
       },
@@ -71,16 +85,19 @@ function analyse(ast, magicStirng, module) {
       },
     });
   });
-
   ast._scope = scope;
-  // 找出外部依赖 dependsOn
+
+  // 找出外部依赖关系 dependsOn
   ast.body.forEach((statement) => {
     walk(statement, {
       enter(node) {
         if (node._scope) {
           scope = node._scope;
         }
+        // 遇到导出节点
         if (node.type === "Identifier") {
+          // 遇到 exports const a => node.name = 'a'
+          console.log("Identifier:", node);
           // 向上递归
           const definingScope = scope.findDefiningScope(node.name);
           if (!definingScope) {
@@ -94,8 +111,6 @@ function analyse(ast, magicStirng, module) {
       },
     });
   });
-
-  
 
   // 全量的代码
   // ast.body.forEach((statement) => {

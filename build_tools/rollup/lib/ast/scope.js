@@ -1,3 +1,6 @@
+/**
+ * 模拟作用域链
+ */
 class Scope {
 	constructor(options = {}) {
 		this.parent = options.parent // 父作用域
@@ -21,9 +24,15 @@ class Scope {
 		}
 	}
 
+	/**
+	 * 判断变量是否被声明
+	 * @param {*} name 
+	 * @returns 
+	 */
 	contains(name) {
 		return !!this.findDefiningScope(name)
 	}
+	
 	/**
 	 * 返回变量坐在的作用域
 	 * @param {*} name 

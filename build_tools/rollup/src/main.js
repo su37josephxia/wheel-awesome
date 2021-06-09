@@ -1,4 +1,5 @@
-import { a,b } from "./foo";
+import { a,b,c} from "./foo";
+// c()
+b()
 console.log('abc')
 console.log("Hello" + a);
-console.log("World"+ b);

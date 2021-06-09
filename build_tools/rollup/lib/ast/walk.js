@@ -5,6 +5,14 @@ function walk(ast, { enter, leave }) {
   visit(ast, null, enter, leave);
 }
 
+/**
+ * 访问者
+ * @param {*} node 
+ * @param {*} parent 
+ * @param {*} enter 
+ * @param {*} leave 
+ * @returns 
+ */
 function visit(node, parent, enter, leave) {
   if(!node) return
   // 先执行enter

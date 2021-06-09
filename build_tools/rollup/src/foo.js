@@ -1,3 +1,5 @@
-import { c } from "./c";
-export const a = "a" + c;
-export const b = "b";
+export const a = "a";
+export const b = () => "b";
+export function c() {
+    return 'c'
+}

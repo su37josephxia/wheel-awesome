@@ -57,7 +57,6 @@ class Module {
     this.definitions = {}; // 找到定义语句
     this.ast.body.forEach((statement) => {
       Object.keys(statement._defines).forEach((name) => {
-        console.log('===>>',name,statement)
         // 变量名对应的语句
         this.definitions[name] = statement;
       });
@@ -112,7 +111,9 @@ class Module {
       // 获取msg模块 exports imports
       const modul = this.bundle.fetchModule(importData.source, this.path);
 
-      // this.exports['age'] =
+      console.log('modul.exports',modul.exports)
+
+      // this.exports['age'] = 
       const exportData = modul.exports[importData.name];
       // console.log("exportData", exportData);
 
