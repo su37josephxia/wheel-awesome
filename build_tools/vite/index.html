@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vite App</title>
+</head>
+<body>
+  <h1>然叔 666</h1>
+  <div id="app"></div>
+  <script>
+    // 应该会注入一段client代码，这段仕后端注入的
+    // 热更新走的仕socketio，代码也在这里注入
+    window.process = {
+      env:{
+        NODE_ENV:'dev'
+      }
+    }
+  </script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

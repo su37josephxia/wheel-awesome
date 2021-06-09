@@ -1,0 +1,27 @@
+{
+  "name": "mini-vite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vue/compiler-dom": "^3.0.0-rc.5",
+    "@vue/compiler-sfc": "^3.0.7",
+    "@vue/server-renderer": "^3.0.0-rc.4",
+    "glob": "^7.1.6",
+    "koa": "^2.12.0",
+    "marked": "^1.1.1",
+    "socket.io": "^2.3.0",
+    "vue": "^3.0.7",
+    "watch": "^1.0.2"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "vite": "^0.20.0"
+  }
+}

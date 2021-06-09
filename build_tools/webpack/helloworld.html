@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <!-- <script src="./src/index.js"></script>
+ -->
+    <!-- <script src="./dist/bundle.js"></script> -->
+    <script>
+      // const str = 'var add = (a, b) => a + b;'
+      // eval(str)
+      // console.log(add(1 , 2))
+
+      // const createAdd = new Function('return (a,b) => a + b')
+      // const add2 = createAdd()
+      // console.log(add2(2, 4))
+
+      const obj = 
+      {
+        default: function(a,b){return a + b}
+      }
+
+
+      exports.default = function(a,b){return a + b}
+      var exports = {};
+      eval("exports.default = function(a,b){return a + b}")
+      function require(file) {
+        var exports = {};
+        (function (exports, code) {
+          eval(code);
+        })(exports, "exports.default = function(a,b){return a + b}");
+        return exports;
+      }
+      var add = require("add.js").default;
+      console.log(add(1, 2));
+
+      // (function (list) {
+      //   function require(file) {
+      //     var exports = {};
+      //     (function (exports, code) {
+      //       eval(code);
+      //     })(exports, list[file]);
+      //     return exports;
+      //   }
+      //   require("index.js");
+      // })({
+      //   "index.js": `
+      //     var add = require('add.js').default
+      //     console.log(add(1 , 2))
+      //   `,
+      //   "add.js": `
+      //     exports.default = function(a,b){return a + b}
+      //   `,
+      // });
+    </script>
+  </body>
+</html>
