@@ -66,7 +66,7 @@ class Module {
     // 根据当前语法树
     // 构筑作用域链对象
     // _defines: 变量定义 const a = 'a'
-    // _dependsOn: 变量依赖 
+    // _dependsOn: 变量依赖
     // _included: 此语句是否被打包Bundle 防止多次打包Bundle
     // _source: 语句字符串
     analyse(this.ast, this.code, this); // 找到_defines 和 _dependson
@@ -84,7 +84,7 @@ class Module {
 
   /**
    * 展开所有语句节点
-   * @returns 
+   * @returns
    */
   expandAllStatements() {
     const allStatements = [];
@@ -103,11 +103,10 @@ class Module {
 
   /**
    * 展开单个语句节点
-   * @param {*} statement 
-   * @returns 
+   * @param {*} statement
+   * @returns
    */
   expandStatement(statement) {
-
     let result = [];
     // !tree-sharking
     // 检查此句的外部依赖
@@ -143,11 +142,13 @@ class Module {
       const importDeclaration = this.imports[name];
       // 获取msg模块 exports imports
       // 读取声明模块
-      const module = this.bundle.fetchModule(importDeclaration.source, this.path);
+      const module = this.bundle.fetchModule(
+        importDeclaration.source,
+        this.path
+      );
 
       // this.exports['age'] =
       const exportData = module.exports[importDeclaration.name];
-      // console.log("exportData", exportData);
 
       // 低啊用msg模块的define 目的返回
       return module.define(exportData.localName);

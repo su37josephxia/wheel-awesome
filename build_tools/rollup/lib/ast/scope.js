@@ -29,7 +29,8 @@ class Scope {
 	 * @param {*} name 
 	 * @returns 
 	 */
-	contains(name) {
+	cantains(name) {
+		
 		return !!this.findDefiningScope(name)
 	}
 	
