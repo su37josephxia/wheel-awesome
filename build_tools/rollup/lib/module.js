@@ -3,24 +3,34 @@ const path = require("path");
 const { parse } = require("acorn");
 const analyse = require("./ast/analyse");
 
-function hasOwnProperty(obj, prop) {
+function has(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
+/**
+ * @class 分析模块
+ */
 class Module {
   constructor({ code, path, bundle }) {
     this.code = new MagicString(code, { filename: path });
     this.path = path;
     this.bundle = bundle;
+    // Parse阶段
     this.ast = parse(code, {
-      ecmaVersion: 7,
+      ecmaVersion: 6,
       sourceType: "module",
     });
+    // Transfer
     this.analyse();
   }
 
+  /**
+   * 分析模块导入和导出
+   */
   analyse() {
+    // 导入语句
     this.imports = {}; // 存放当前模块导入
+    // 导出语句
     this.exports = {}; // 存放导出
 
     this.ast.body.forEach((node) => {
@@ -38,6 +48,8 @@ class Module {
         // export {a}
         // export default home
       } else if (/^Export/.test(node.type)) {
+        // TODO: ExportDefaultDeclaration or ExportNamedDeclaration
+        // TODO: 没有仔细写 应该默认导入会有问题
         let declaration = node.declaration;
         if (declaration.type === "VariableDeclaration") {
           let name = declaration.declarations[0].id.name;
@@ -50,11 +62,18 @@ class Module {
       }
     });
 
+    // 调用分析模块
+    // 根据当前语法树
+    // 构筑作用域链对象
+    // _defines: 变量定义 const a = 'a'
+    // _dependsOn: 变量依赖 
+    // _included: 此语句是否被打包Bundle 防止多次打包Bundle
+    // _source: 语句字符串
     analyse(this.ast, this.code, this); // 找到_defines 和 _dependson
 
     // 查找外部依赖
-
     this.definitions = {}; // 找到定义语句
+    // 遍历找出每一个节点中的定义语句
     this.ast.body.forEach((statement) => {
       Object.keys(statement._defines).forEach((name) => {
         // 变量名对应的语句
@@ -63,10 +82,15 @@ class Module {
     });
   }
 
+  /**
+   * 展开所有语句节点
+   * @returns 
+   */
   expandAllStatements() {
     const allStatements = [];
 
     this.ast.body.forEach((statement) => {
+      // 忽略所有Import语句
       if (statement.type === "ImportDeclaration") {
         return;
       }
@@ -77,52 +101,59 @@ class Module {
     return allStatements;
   }
 
+  /**
+   * 展开单个语句节点
+   * @param {*} statement 
+   * @returns 
+   */
   expandStatement(statement) {
-    // statement._included = true;
-    let result = [];
 
-    // tree-sharking
+    let result = [];
+    // !tree-sharking
     // 检查此句的外部依赖
+    // 遍历所有依赖变量
     const dependencies = Object.keys(statement._dependsOn);
     dependencies.forEach((name) => {
       statement._included = true;
-      // 查找变量声明节点
+      // 提取依赖变量的声明部分
+      // import {a} from 'foo.js'
+      // ↓↓↓↓↓↓↓
+      // const a = 'a'
       const definition = this.define(name);
       result.push(...definition);
     });
-    console.log('expand......'+statement._included,statement)
+
     if (!statement._included) {
-     
       statement._included = true;
       result.push(statement);
     }
-    console.log('result:',result)
+    console.log("result:", result);
     return result;
   }
 
   /**
-   * 添加定义
+   * 查找变量声明
    * @param {*} name
-   * @returns
+   * @description 找出某个变量的声明部分
+   * @returns 声明部分
    */
   define(name) {
-    if (hasOwnProperty(this.imports, name)) {
-      const importData = this.imports[name];
+    if (has(this.imports, name)) {
+      // import项的声明部分
+      const importDeclaration = this.imports[name];
       // 获取msg模块 exports imports
-      const modul = this.bundle.fetchModule(importData.source, this.path);
+      // 读取声明模块
+      const module = this.bundle.fetchModule(importDeclaration.source, this.path);
 
-      console.log('modul.exports',modul.exports)
-
-      // this.exports['age'] = 
-      const exportData = modul.exports[importData.name];
+      // this.exports['age'] =
+      const exportData = module.exports[importDeclaration.name];
       // console.log("exportData", exportData);
 
       // 低啊用msg模块的define 目的返回
-      return modul.define(exportData.localName);
+      return module.define(exportData.localName);
     } else {
       let statement = this.definitions[name];
       if (statement && !statement._included) {
-        
         return this.expandStatement(statement);
       } else {
         return [];
