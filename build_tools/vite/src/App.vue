@@ -1,5 +1,5 @@
 <template>
-  <h1>大家好 kkb欢迎你</h1>
+  <h1>大家好 然叔666</h1>
   <h2>
     <span>count is {{count}} *2={{double}}</span>
     <button @click="count++">戳我</button>
