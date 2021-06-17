@@ -5,10 +5,10 @@ const walk = require("./walk");
  * 哪些变量是当前模块声明
  *
  * @param {*} ast
- * @param {*} magicStirng
+ * @param {*} magicString
  * @param {*} module
  */
-function analyse(ast, magicStirng, module) {
+function analyse(ast, magicString, module) {
   // 职责
 
   // 创建全局作用域
@@ -42,7 +42,7 @@ function analyse(ast, magicStirng, module) {
       _included: { value: false, writable: true },
 
       // 变量语句
-      _source: { value: magicStirng.snip(statement.start, statement.end) },
+      _source: { value: magicString.snip(statement.start, statement.end) },
     });
 
     // 作用域链遍历

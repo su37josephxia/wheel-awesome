@@ -1,6 +1,9 @@
 const acorn = require("acorn");
 
 const walk = require("../../lib/ast/walk");
+const Scope = require("../../lib/ast/scope");
+const MagicString = require("magic-string");
+
 const code = {
   index: `
   import { add } from "./add.js";
@@ -13,8 +16,17 @@ const code = {
 
 const add = getAst(code.add);
 const index = getAst(code.index);
-getImports(index);
-getExports(add);
+// 添加代码片段
+// getSource(index, new MagicString(code.index));
+// getSource(add, new MagicString(code.add));
+let declarations = [];
+analyse(add, new MagicString(code.add));
+analyse(index, new MagicString(code.index));
+const statments = expandAllStatements(index);
+generate(statments)
+
+// analyse(add,new MagicString(code.add))
+// const _exports =  getExports(add);
 
 /**
  * 获取AST
@@ -32,11 +44,10 @@ function getAst(code) {
 
 function getImports(ast) {
   console.log("========分析import=======");
-  const index = getAst(code.index);
   const imports = {};
   ast.body.forEach((node) => {
     if (node.type === "ImportDeclaration") {
-      console.log("import:", node);
+      console.log("import:", node._source.toString());
       // ex: import { a : b } from 'foo'
       // let source = node.source.value;
       const source = "";
@@ -58,13 +69,17 @@ function getExports(ast) {
   ast.body.forEach((node) => {
     // 分析导入import
     if (/^Export/.test(node.type)) {
-      console.log("exports:", node);
-      // TODO: ExportDefaultDeclaration or ExportNamedDeclaration
-      // TODO: 没有仔细写 应该默认导入会有问题
+      console.log("exports:", node._source.toString());
       let declaration = node.declaration;
       if (declaration.type === "VariableDeclaration") {
         let name = declaration.declarations[0].id.name;
-        console.log("declaration", name, declaration);
+        console.log(
+          "declaration",
+          name,
+          new MagicString(code.add)
+            .snip(declaration.start, declaration.end)
+            .toString()
+        );
         _exports[name] = {
           node,
           localName: name,
@@ -73,31 +88,148 @@ function getExports(ast) {
       }
     }
   });
+  return _exports;
 }
+
+function generate() {}
 
 /**
  * 根据语法树 start-end 切割代码
  */
-function getSource(ast) {
-  let indent = 0;
-  const padding = () => " ".repeat(indent);
-
-  // 遍历语法树中的每一条语句  由walk遍历子元素
-  // 深度优先原则
+function getSource(ast, magicString) {
+  // 全量的代码
   ast.body.forEach((statement) => {
+    Object.defineProperties(statement, {
+      // start在节点中的起始索引 和结束索引
+      _source: { value: magicString.snip(statement.start, statement.end) },
+    });
+    console.log(statement.type, statement._source.toString());
+  });
+}
+
+// 分析函数
+function analyse(ast, magicString) {
+  console.log("======analyse=====");
+  // 创建全局作用域
+  let scope = new Scope();
+  // 遍历当前语法树
+  ast.body.forEach((statement) => {
+    /**
+     * 给作用域内添加变量
+     * @param {*} declaration
+     */
+    function addToScope(declaration) {
+      var name = declaration.id.name; // 获取声明的变量
+      scope.add(name);
+      if (!scope.parent) {
+        // 如果此变量作用域不在父级作用域 即当前作用域
+        // 如果当前是全局作用域的话
+        // 在全局作用域下声明全局变量
+        statement._defines[name] = true;
+      }
+    }
+
+    Object.defineProperties(statement, {
+      // 变量定义
+      _defines: { value: {} },
+
+      // 变量依赖
+      _dependsOn: { value: {} },
+
+      // 此语句是否被打包Bundle 防止多次打包Bundle
+      _included: { value: false, writable: true },
+
+      // 变量语句
+      _source: { value: magicString.snip(statement.start, statement.end) },
+    });
+
+    // 作用域链遍历
+    // 分析变量定义的
+    // 构造作用域链
     walk(statement, {
       enter(node) {
-        if (node.type) {
-          console.log(padding() + node.type + " enter");
-          indent += 2;
+        let newScope;
+        // 防止空节点和空数组
+        if (node === null || node.length === 0) return;
+        switch (node.type) {
+          // 变量声明
+          case "VariableDeclaration":
+            declarations.push(node);
+            node.declarations.forEach(addToScope);
+            break;
+        }
+        if (newScope) {
+          console.log("newScope", newScope);
+          // 当前节点声明的新作用域
+          // 如果此节点生成一个新作用域
+          Object.defineProperties(node, { _scope: { value: newScope } });
+          scope = newScope;
         }
       },
       leave(node) {
-        if (node.type) {
-          indent -= 2;
-          console.log(padding() + node.type + " leave");
+        if (node._scope) {
+          // 如果此节点离开退回父作用域
+          scope = scope.parent;
         }
       },
     });
   });
+  ast._scope = scope;
+
+  // 找出外部依赖关系 dependsOn
+  ast.body.forEach((statement) => {
+    walk(statement, {
+      enter(node) {
+        if (node._scope) {
+          scope = node._scope;
+        }
+        // 遇到导出节点
+        if (node.type === "Identifier") {
+          // 遇到 exports const a => node.name = 'a'
+
+          // 向上递归
+          const definingScope = scope.findDefiningScope(node.name);
+          if (!definingScope) {
+            console.log("Identifier:", node.name);
+            statement._dependsOn[node.name] = true; // 表示属于外部依赖变量
+          }
+        }
+      },
+
+      leave(node) {
+        if (node._scope) scope = scope.parent;
+      },
+    });
+  });
 }
+
+/**
+ * 展开所有语句节点
+ * @returns
+ */
+function expandAllStatements(ast) {
+  console.log("=========expandAllStatements=============");
+  const allStatements = [];
+
+  ast.body.forEach((statement) => {
+    // 忽略所有Import语句
+    if (statement.type === "ImportDeclaration") {
+      return;
+    }
+
+    allStatements.push(...declarations, statement);
+  });
+  return allStatements;
+}
+
+
+
+function generate(statments) {
+  console.log('======generate=====')
+  // statments.forEach(v => console.log(magicString.snip(v.start, v.end))) 
+  let v = statments[0]
+  console.log(new MagicString(code.add).snip(v.start, v.end).toString())
+  v = statments[1]
+  console.log(new MagicString(code.index).snip(v.start, v.end).toString())
+}
+
