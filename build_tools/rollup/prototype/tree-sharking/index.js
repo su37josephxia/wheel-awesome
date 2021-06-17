@@ -13,9 +13,11 @@ const code = {
   export const add = (a,b) => a + b
   `,
 };
-
+// Parse阶段
 const add = getAst(code.add);
 const index = getAst(code.index);
+
+// Transfer
 // 添加代码片段
 // getSource(index, new MagicString(code.index));
 // getSource(add, new MagicString(code.add));
@@ -23,6 +25,8 @@ let declarations = [];
 analyse(add, new MagicString(code.add));
 analyse(index, new MagicString(code.index));
 const statments = expandAllStatements(index);
+
+// Generate
 generate(statments)
 
 // analyse(add,new MagicString(code.add))
@@ -91,7 +95,6 @@ function getExports(ast) {
   return _exports;
 }
 
-function generate() {}
 
 /**
  * 根据语法树 start-end 切割代码
