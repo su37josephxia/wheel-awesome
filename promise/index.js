@@ -4,7 +4,7 @@ const PENDING = 'PENDING',
       REJECTED = 'REJECTED';
 
 /*
-* 基础版Promise，提供最基础的功能
+* 基础版Promise，提供最基础的功能...
 */
 class BasePromise {
   constructor( executor ) {
