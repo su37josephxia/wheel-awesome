@@ -4,7 +4,7 @@
 
 ## 天才榜
 [全栈然叔](https://github.com/su37josephxia) 、
-
+[coboy](https://github.com/amebyte) 、
 
 - 如何下载代码？
 - 如何运行代码？
