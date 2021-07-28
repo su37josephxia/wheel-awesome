@@ -51,3 +51,16 @@ it('完整版Promise失败返回测试', (done) => {
     done();
   })
 })
+
+it('完整版Promise失败返回测试', (done) => {
+  const promise = new FullPromise((resolve, reject) => {
+    setTimeout(() => reject('fail'), 1000);
+  });
+
+  promise.then().then().then(data => {
+    console.log('resolve data: ', data);
+  }, err => {
+    expect(err).toBe('fail');
+    done();
+  })
+})
