@@ -23,16 +23,17 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
 - [ ] Typescript基础
 ## 造轮子计划 
 > 计划天天变
-- 螺丝钉
+- 材料  material - Javascript基础 、算法、设计模式
   - [x]  [Compose](https://juejin.cn/post/6893338774088974343)
   - [ ]  Promise
   - [ ]  Promise.all/race
-  - [ ]  路由
   - [ ]  new
+  - [ ]  thunk
   - [x]  call/apply/bind 
   - [ ]  Object.create
   - [ ]  深拷贝、浅拷贝
-- 零部件
+  - [ ]  排序（冒泡、快排、选择）
+- 零部件 part  - 框架中的独立部分
   - [x] [模板引擎](https://www.bilibili.com/video/BV1Tr4y1w7v5?p=1)
   - [x] [防抖与节流](https://juejin.im/post/6885250789825052679)
   - [x] [响应式原理](https://juejin.im/post/6885546581438201869)
@@ -40,8 +41,9 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
   - [x] [时间旅行](https://www.bilibili.com/video/BV1Tr4y1w7v5?p=3)
   - [x] [Mixin](https://juejin.cn/post/6891935359651807239)
   - [ ] 原生Ajax
+  - [ ] 路由
   - [ ]  订阅发布
-- 轮子
+- 轮子 wheel  - 著名框架的简写版
   - [x] [vue](https://www.bilibili.com/video/BV1hV411q7S8)
   - [ ] react
   - [ ] 浏览器
