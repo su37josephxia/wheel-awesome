@@ -9,6 +9,7 @@
 [coboy](https://github.com/amebyte) 、
 [Potter](https://github.com/yxw007)、
 [findream](https://github.com/224137748)
+[encorehe](https://github.com/encorehe)
 
 ## 运行步骤
 
