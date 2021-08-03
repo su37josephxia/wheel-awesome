@@ -20,6 +20,7 @@ describe('principle think test', () => {
     });
 
     test('3.实现从入口index.js开始运行', () => {
+        const consoleSpy = jest.spyOn(console, 'log');
         (function (list) {
             var exports = {};
             function require(file) {
@@ -33,5 +34,6 @@ describe('principle think test', () => {
             "index.js": `var add = require("add.js").default; console.log(add(1, 8));`,
             "add.js": `var a=123;exports.default=function(a,b){return a+b}`,
         })
+        expect(consoleSpy).toHaveBeenCalledWith(9);
     });
 });
