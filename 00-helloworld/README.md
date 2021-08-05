@@ -11,7 +11,8 @@
 [findream](https://github.com/224137748)
 [encorehe](https://github.com/encorehe)
 [mcdu11](https://github.com/mcdu11)
-[eric凯](https://github.com/yk-knight)
+[eric 凯](https://github.com/yk-knight)
+[alex](https://github.com/alexgy1)
 
 ## 运行步骤
 
