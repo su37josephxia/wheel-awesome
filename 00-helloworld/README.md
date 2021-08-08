@@ -13,10 +13,10 @@
 [mcdu11](https://github.com/mcdu11) 、
 [eric凯](https://github.com/yk-knight) 、
 [alex](https://github.com/alexgy1) 、
-[janninaweigal](https://github.com/janninaweigal)
-[DandelionYan](https://github.com/DandelionYan)
+[janninaweigal](https://github.com/janninaweigal)、
+[DandelionYan](https://github.com/DandelionYan)、
 [yw](https://github.com/yanwufly)、
-[LouieJiang](https://github.com/LouieJiang)
+[LouieJiang](https://github.com/LouieJiang)、
 
 ## 运行步骤
 
