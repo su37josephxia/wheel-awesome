@@ -12,7 +12,8 @@
 [encorehe](https://github.com/encorehe) 、
 [mcdu11](https://github.com/mcdu11) 、
 [eric凯](https://github.com/yk-knight) 、
-[janninaweigal](https://github.com/janninaweigal)、
+[janninaweigal](https://github.com/janninaweigal)
+[DandelionYan](https://github.com/DandelionYan)
 [yw](https://github.com/yanwufly)、
 [LouieJiang](https://github.com/LouieJiang)
 
