@@ -12,7 +12,8 @@
 [encorehe](https://github.com/encorehe) 、
 [mcdu11](https://github.com/mcdu11) 、
 [eric凯](https://github.com/yk-knight) 、
-[janninaweigal](https://github.com/janninaweigal)
+[janninaweigal](https://github.com/janninaweigal)、
+[yw](https://github.com/yanwufly)、
 
 ## 运行步骤
 
