@@ -13,6 +13,7 @@
 [mcdu11](https://github.com/mcdu11) 、
 [eric凯](https://github.com/yk-knight) 、
 [alex](https://github.com/alexgy1) 、
+[janninaweigal](https://github.com/janninaweigal)
 
 ## 运行步骤
 
