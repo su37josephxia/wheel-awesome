@@ -7,12 +7,12 @@
 [全栈然叔](https://github.com/su37josephxia) 、
 [Young 村长](https://github.com/57code) 、
 [coboy](https://github.com/amebyte) 、
-[Potter](https://github.com/yxw007)、
-[findream](https://github.com/224137748)
-[encorehe](https://github.com/encorehe)
-[mcdu11](https://github.com/mcdu11)
-[eric凯](https://github.com/yk-knight)
-[老K](https://github.com/Kiki-demo)
+[Potter](https://github.com/yxw007) 、
+[findream](https://github.com/224137748) 、
+[encorehe](https://github.com/encorehe) 、
+[mcdu11](https://github.com/mcdu11) 、
+[eric凯](https://github.com/yk-knight) 、
+[janninaweigal](https://github.com/janninaweigal)
 
 ## 运行步骤
 
