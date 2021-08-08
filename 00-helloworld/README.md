@@ -14,6 +14,7 @@
 [eric凯](https://github.com/yk-knight) 、
 [janninaweigal](https://github.com/janninaweigal)、
 [yw](https://github.com/yanwufly)、
+[LouieJiang](https://github.com/LouieJiang)
 
 ## 运行步骤
 
