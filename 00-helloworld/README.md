@@ -17,7 +17,7 @@
 [DandelionYan](https://github.com/DandelionYan)、
 [yw](https://github.com/yanwufly)、
 [LouieJiang](https://github.com/LouieJiang)、
-
+[Randyqin](https://github.com/qinran0423)、
 ## 运行步骤
 
 - 如何下载代码？
