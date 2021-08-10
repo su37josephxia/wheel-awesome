@@ -12,7 +12,7 @@ describe('test helloworld index', () => {
   })
   
   // 测试用例2：验证回调函数是否被调用并传入hi
-  test('should call fn and receive a hi', () => {
+  test('should call fn and receive a hi,彩蛋~~~~', () => {
     const hello = require('../index')
     // 模拟一个函数
     const fn = jest.fn()
