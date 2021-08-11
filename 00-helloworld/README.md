@@ -11,7 +11,7 @@
 [findream](https://github.com/224137748) 、
 [encorehe](https://github.com/encorehe) 、
 [mcdu11](https://github.com/mcdu11) 、
-[eric凯](https://github.com/yk-knight) 、
+[eric 凯](https://github.com/yk-knight) 、
 [alex](https://github.com/alexgy1) 、
 [janninaweigal](https://github.com/janninaweigal)、
 [DandelionYan](https://github.com/DandelionYan)、
@@ -20,6 +20,8 @@
 [Randyqin](https://github.com/qinran0423)、
 [dh](https://github.com/xf017946)、
 [MarkTo22](https://github.com/MarkTo22)、
+[123](https://github.com/141110126/)、
+
 ## 运行步骤
 
 - 如何下载代码？
