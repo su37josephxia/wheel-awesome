@@ -8,10 +8,11 @@
 [Young 村长](https://github.com/57code) 、
 [coboy](https://github.com/amebyte) 、
 [Potter](https://github.com/yxw007)、
-[findream](https://github.com/224137748)
-[encorehe](https://github.com/encorehe)
-[mcdu11](https://github.com/mcdu11)
-[eric凯](https://github.com/yk-knight)
+[findream](https://github.com/224137748)、
+[encorehe](https://github.com/encorehe)、
+[mcdu11](https://github.com/mcdu11)、
+[eric凯](https://github.com/yk-knight)、
+[jeneen](https://github.com/zx1001011)
 
 ## 运行步骤
 
