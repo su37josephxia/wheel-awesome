@@ -18,12 +18,18 @@
 [yw](https://github.com/yanwufly)、
 [LouieJiang](https://github.com/LouieJiang)、
 [Randyqin](https://github.com/qinran0423)、
+[dh](https://github.com/xf017946)、
+[MarkTo22](https://github.com/MarkTo22)、
+[123](https://github.com/141110126/)、
+[dz](https://github.com/dongson001/)、
+[Delicious](https://github.com/17318061024)、
+
 ## 运行步骤
 
-- 如何下载代码？
-- 如何运行代码？
-- 如何使用 TDD(测试驱动方式)开发一个 Helloworld？
-- 如何给天天造轮子提交代码贡献？
+* 如何下载代码？
+* 如何运行代码？
+* 如何使用 TDD(测试驱动方式)开发一个 Helloworld？
+* 如何给天天造轮子提交代码贡献？
 
 最近然叔的天天造轮子栏目得到了大家的欢迎，但是吃瓜的多，真正加进来的少呀，
 
