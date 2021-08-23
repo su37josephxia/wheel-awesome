@@ -1,5 +1,3 @@
-
-
 import { minus } from "./minus.js";
 console.log("minus:", minus(20, 1));
 import { c } from "./c.js";
