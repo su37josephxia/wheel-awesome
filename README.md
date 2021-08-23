@@ -21,6 +21,7 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
 - [x] [ Git详解 ](https://juejin.cn/post/6844904199189184525)
 - [ ] 工程化与持续构建基础
 - [ ] Typescript基础
+## 天才榜 王秀锋 https://github.com/FionaWong/wheel-awesome
 ## 造轮子计划 
 > 计划天天变
 - 材料  material - Javascript基础 、算法、设计模式
