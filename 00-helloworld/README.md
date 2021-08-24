@@ -23,6 +23,7 @@
 [123](https://github.com/141110126/)、
 [dz](https://github.com/dongson001/)、
 [Delicious](https://github.com/17318061024)、
+[FionaWong] https://github.com/FionaWong/wheel-awesome
 
 ## 运行步骤
 
