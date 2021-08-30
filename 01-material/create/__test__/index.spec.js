@@ -14,6 +14,7 @@ describe('Object create实现', () => {
     newCreate.name = 'Tom'
     originCreate.name = 'Tom'
     expect(newCreate.say()).toBe(originCreate.say())
+    expect(newCreate.__proto__).toEqual(person)
   })
   it('有第二个参数', () => {
     const target = { a: 1 }
@@ -32,6 +33,7 @@ describe('Object create实现', () => {
       }
     }
     const newCreate = Object.newCreate(target, properies)
+    expect(newCreate.__proto__).toEqual(target)
     expect(newCreate.b).toBe(2)
     expect(newCreate.c).toBe(3)
     newCreate.c = 4
