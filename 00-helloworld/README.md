@@ -22,9 +22,11 @@
 [MarkTo22](https://github.com/MarkTo22) 、
 [123](https://github.com/141110126/) 、
 [dz](https://github.com/dongson001/) 、
+[YouYouzmr](https://github.com/YouYouzmr) 、
 [Delicious](https://github.com/17318061024) 、
+[Zifeiyu](https://github.com/zifeiyu666) 、
+[shadow](https://github.com/Mr-House) 、
 [Picsong](https://github.com/Picsong) 、
-
 ## 运行步骤
 
 * 如何下载代码？
