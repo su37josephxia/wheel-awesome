@@ -50,6 +50,7 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
   - [ ] 浏览器
   - [ ] HTTP服务器
   - [x] [webpack](https://www.bilibili.com/video/BV1dV411p7gp)
+  - [x] [rollup](https://www.bilibili.com/video/BV1Df4y1n777)
   - [ ] rollup
   - [ ] axios
 
