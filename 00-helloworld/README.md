@@ -22,6 +22,7 @@
 [MarkTo22](https://github.com/MarkTo22)、
 [123](https://github.com/141110126/)、
 [dz](https://github.com/dongson001/)、
+[美少女壮士](https://github.com/aray0911)、
 
 ## 运行步骤
 
