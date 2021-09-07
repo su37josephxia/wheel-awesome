@@ -7,7 +7,7 @@
 [全栈然叔](https://github.com/su37josephxia) 、
 [Young 村长](https://github.com/57code) 、
 [coboy](https://github.com/amebyte) 、
-[Potter](https://github.com/yxw007)、
+[Potter](https://github.com/yxw007) 、
 [findream](https://github.com/224137748) 、
 [encorehe](https://github.com/encorehe) 、
 [mcdu11](https://github.com/mcdu11) 、
@@ -19,17 +19,31 @@
 [LouieJiang](https://github.com/LouieJiang)、
 [Randyqin](https://github.com/qinran0423)、
 [dh](https://github.com/xf017946)、
-[MarkTo22](https://github.com/MarkTo22)、
-[123](https://github.com/141110126/)、
-[dz](https://github.com/dongson001/)、
+[janninaweigal](https://github.com/janninaweigal) 、
+[DandelionYan](https://github.com/DandelionYan) 、
+[yw](https://github.com/yanwufly) 、
+[LouieJiang](https://github.com/LouieJiang) 、
+[Randyqin](https://github.com/qinran0423) 、
+[dh](https://github.com/xf017946) 、
+[MarkTo22](https://github.com/MarkTo22) 、
+[123](https://github.com/141110126/) 、
+[dz](https://github.com/dongson001/) 、
+[YouYouzmr](https://github.com/YouYouzmr) 、
+[Delicious](https://github.com/17318061024) 、
+[Zifeiyu](https://github.com/zifeiyu666) 、
+[shadow](https://github.com/Mr-House) 、
+[Picsong](https://github.com/Picsong) 、
+[PlaYzc](https://github.com/es329)、
+[bugLover666](https://github.com/bugLover666)、
 [美少女壮士](https://github.com/aray0911)、
+
 
 ## 运行步骤
 
-- 如何下载代码？
-- 如何运行代码？
-- 如何使用 TDD(测试驱动方式)开发一个 Helloworld？
-- 如何给天天造轮子提交代码贡献？
+* 如何下载代码？
+* 如何运行代码？
+* 如何使用 TDD(测试驱动方式)开发一个 Helloworld？
+* 如何给天天造轮子提交代码贡献？
 
 最近然叔的天天造轮子栏目得到了大家的欢迎，但是吃瓜的多，真正加进来的少呀，
 
