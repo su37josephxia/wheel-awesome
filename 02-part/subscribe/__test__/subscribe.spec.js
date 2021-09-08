@@ -19,6 +19,11 @@ describe('test subscribe dispatch', () => {
     eventSubscribe.dispatch('bEvent');
     expect(testStr).toEqual('testStr change');
   })
+
+  it('dispatch null event', () => {
+    eventSubscribe.dispatch('fEvent');
+  })
+
   describe('test unsubscribe', () => {
 
     // 单个监听函数
