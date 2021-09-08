@@ -30,6 +30,7 @@
 [PlaYzc](https://github.com/es329)、
 [bugLover666](https://github.com/bugLover666)、
 [fhy](https://github.com/fhy1)、
+[美少女壮士](https://github.com/aray0911)、
 
 
 ## 运行步骤
