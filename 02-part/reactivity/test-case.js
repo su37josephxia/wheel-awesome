@@ -9,7 +9,6 @@ module.exports = ({reactive,effect}) => {
         })
         // Mock一个响应函数
         const fn = jest.fn()
-        const result = fn()
 
         // 设置响应函数
         effect(fn)

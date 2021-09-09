@@ -18,7 +18,7 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
 - [x] [ 如何使用git ](https://juejin.cn/post/6989541212105981966)
 - [x] [ 如何为开源项目贡献代码 PR ](https://juejin.cn/post/6989541212105981966)
 - [ ] Jest单元测试基础
-- [ ] Git详解
+- [x] [ Git详解 ](https://juejin.cn/post/6844904199189184525)
 - [ ] 工程化与持续构建基础
 - [ ] Typescript基础
 ## 造轮子计划 
@@ -49,7 +49,7 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
   - [ ] 浏览器
   - [ ] HTTP服务器
   - [x] [webpack](https://www.bilibili.com/video/BV1dV411p7gp)
-  - [ ] rollup
+  - [x] [rollup](https://www.bilibili.com/video/BV1Df4y1n777)
   - [ ] axios
 
 ---

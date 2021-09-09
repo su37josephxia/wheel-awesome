@@ -10,11 +10,11 @@ describe('test helloworld index', () => {
     const result = hello()
     expect(result).toBe('helloworld')
   })
-  
+
   // 测试用例2：验证回调函数是否被调用并传入hi
-  test('should call fn and receive a hi', () => {
+  test('should call fn and receive a hi,彩蛋~~~~', () => {
     const hello = require('../index')
-    // 模拟一个函数
+    // 通过jest库，模拟一个函数
     const fn = jest.fn()
     hello(fn)
 
@@ -23,5 +23,5 @@ describe('test helloworld index', () => {
     expect(calls.length).toBe(1)
     expect(calls[0][0]).toBe('hi')
   })
-  
+
 })

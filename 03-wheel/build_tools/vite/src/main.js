@@ -1,12 +1,14 @@
-console.log('main....')
-// alert('2')
+// import {str} from './moduleA.js'
+// console.log('vite ...' + str)
 
-
-// import 都会发起一个网络请求 viet拦截这个请求，渲染
-import { createApp } from 'vue' // node_module
-import App from './App.vue' // 解析成额外的 ?type=template请求 
+// 支持第三方库
+import {createApp, h} from 'vue'
+import App from './App.vue'
 import './index.css'
-
+// const App = {
+//     render() {
+//         // <div><div>Hello  Vite</div></div>
+//         return h('div',null, [h('div',null, String('Hello Vite'))])
+//     }
+// }
 createApp(App).mount('#app')
-
-
