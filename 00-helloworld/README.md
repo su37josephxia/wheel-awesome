@@ -39,6 +39,7 @@
 [yyyyq](https://github.com/yyyyq/)
 [Rigel](https://github.com/Galaxy-Rigel)、
 [blackunicorn](https://github.com/blaunicorn/)、
+[jeneen](https://github.com/zx1001011)、
 
 ## 运行步骤
 
