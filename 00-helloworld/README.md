@@ -29,6 +29,7 @@
 [Picsong](https://github.com/Picsong) 、
 [PlaYzc](https://github.com/es329)、
 [bugLover666](https://github.com/bugLover666)、
+[jpliu](https://github.com/jp-liu)、
 [itgou](https://github.com/itgou)、
 [fhy](https://github.com/fhy1)、
 [美少女壮士](https://github.com/aray0911)、
