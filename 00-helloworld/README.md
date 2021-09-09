@@ -37,6 +37,7 @@
 [流转往复](https://github.com/Breezes1993)、
 [YuJieHou](https://github.com/YuJieHou/)、
 [yyyyq](https://github.com/yyyyq/)
+[Rigel](https://github.com/Galaxy-Rigel)、
 
 ## 运行步骤
 
