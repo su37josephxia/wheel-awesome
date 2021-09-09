@@ -1,6 +1,6 @@
 function newCreate(proto, propertiesObject) {
   if(typeof proto !== 'object' && typeof proto !== 'function') {
-    throw TypeError('Object prorotype may only be an Object: ' + proto)
+    throw TypeError('Object prototype may only be an Object: ' + proto)
   }
   // if(typeof propertiesObject === )
   function F(){}
@@ -11,7 +11,7 @@ function newCreate(proto, propertiesObject) {
     Object.keys(propertiesObject).map(prop => {
       let desc = propertiesObject[prop]
       if(typeof desc !== 'object' || desc === null) {
-        throw TypeError('Object prorotype may only be an Object: ' + desc)
+        throw TypeError('Object prototype may only be an Object: ' + desc)
       } else {
         Object.defineProperty(o, prop ,propertiesObject[prop])
       }

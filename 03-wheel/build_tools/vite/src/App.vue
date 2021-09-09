@@ -1,21 +1,21 @@
 <template>
-  <h1>大家好 然叔666</h1>
-  <h2>
-    <span>count is {{count}} *2={{double}}</span>
-    <button @click="count++">戳我</button>
-  </h2>
+  <div>
+    <h1>大家好 然叔666</h1>
+    <h2>
+      <span>count is {{ count }} </span>
+      <button @click="count++">+1</button>
+    </h2>
+  </div>
 </template>
-
 <script>
-import {ref,computed} from 'vue'
+import { ref } from "vue";
 export default {
-  setup(){
-    const count = ref(6)
-    function add(){
-      count.value++
+  setup() {
+    const count = ref(6);
+    function add() {
+      count.value++;
     }
-    const double = computed(()=>count.value*2)
-    return {count,add,double}
-  }
-}
+    return { count };
+  },
+};
 </script>
