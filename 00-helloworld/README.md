@@ -42,6 +42,7 @@
 [jeneen](https://github.com/zx1001011)、
 [ky6an](https://github.com/ky6an)、
 [zhiwenxuan](https://github.com/zhiwenxuan)、
+[windraxb](https://github.com/windraxb)、
 
 ## 运行步骤
 
