@@ -43,6 +43,7 @@
 [ky6an](https://github.com/ky6an)、
 [zhiwenxuan](https://github.com/zhiwenxuan)、
 [windraxb](https://github.com/windraxb)、
+[copy32](https://github.com/copy32)、
 
 ## 运行步骤
 
