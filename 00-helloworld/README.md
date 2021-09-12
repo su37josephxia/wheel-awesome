@@ -11,7 +11,7 @@
 [findream](https://github.com/224137748) 、
 [encorehe](https://github.com/encorehe) 、
 [mcdu11](https://github.com/mcdu11) 、
-[eric凯](https://github.com/yk-knight) 、
+[eric 凯](https://github.com/yk-knight) 、
 [alex](https://github.com/alexgy1) 、
 [janninaweigal](https://github.com/janninaweigal)、
 [DandelionYan](https://github.com/DandelionYan)、
@@ -23,13 +23,14 @@
 [123](https://github.com/141110126/)、
 [dz](https://github.com/dongson001/)、
 [Delicious](https://github.com/17318061024)、
+[Jimmy](https://github.com/First-Jim)、
 
 ## 运行步骤
 
-* 如何下载代码？
-* 如何运行代码？
-* 如何使用 TDD(测试驱动方式)开发一个 Helloworld？
-* 如何给天天造轮子提交代码贡献？
+- 如何下载代码？
+- 如何运行代码？
+- 如何使用 TDD(测试驱动方式)开发一个 Helloworld？
+- 如何给天天造轮子提交代码贡献？
 
 最近然叔的天天造轮子栏目得到了大家的欢迎，但是吃瓜的多，真正加进来的少呀，
 
