@@ -43,6 +43,7 @@
 [ky6an](https://github.com/ky6an)、
 [zhiwenxuan](https://github.com/zhiwenxuan)、
 [windraxb](https://github.com/windraxb)、
+[文件传輸肋手](https://github.com/CaesarAuditore)、
 
 ## 运行步骤
 
