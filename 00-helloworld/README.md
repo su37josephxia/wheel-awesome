@@ -13,6 +13,7 @@
 [mcdu11](https://github.com/mcdu11) 、
 [eric 凯](https://github.com/yk-knight) 、
 [alex](https://github.com/alexgy1) 、
+[Jimmy](https://github.com/First-Jim)、
 [janninaweigal](https://github.com/janninaweigal) 、
 [DandelionYan](https://github.com/DandelionYan) 、
 [yw](https://github.com/yanwufly) 、
