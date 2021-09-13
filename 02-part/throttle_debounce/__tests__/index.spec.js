@@ -1,3 +1,35 @@
+it('防抖Debounce this指向', () => {
+  const { debounce } = require("../index");
+  // 定义测试函数
+  const testData = Object.create({});
+  let testFncThis;
+  const testFnc = function() {
+    testFncThis = this;
+  }
+  // 封装一个防抖函数
+  const fn = debounce(testFnc, 10);
+  // 改变函数this执行
+  fn.call(testData);
+  setTimeout(() => {
+    expect(testFncThis).toBe(testData);
+  }, 30)
+})
+
+it('节流Throttle this指向', () => {
+  const { throttle } = require("../index");
+  // 定义测试函数
+  const testData = Object.create({});
+  const testFnc = function() {
+    // 验证函数this执行是否正确
+    expect(this).toBe(testData);
+  }
+  // 封装一个防抖函数
+  const fn = throttle(testFnc, 10);
+  // 改变函数this执行
+  fn.call(testData);
+})
+
+
 it("节流Throttle", (done) => {
   const { throttle } = require("../index");
 
@@ -31,7 +63,6 @@ it("防抖Debounce", (done) => {
   // 连续两次调用
   fn(1);
   fn(2);
-
   setTimeout(() => {
     const calls = mockFn.mock.calls;
     // 断言只调用一次
@@ -42,4 +73,3 @@ it("防抖Debounce", (done) => {
     done();
   }, 50);
 });
-
