@@ -43,7 +43,11 @@
 [ky6an](https://github.com/ky6an)、
 [zhiwenxuan](https://github.com/zhiwenxuan)、
 [windraxb](https://github.com/windraxb)、
-[lczCoder](https://github.com/lczCoder)
+[lczCoder](https://github.com/lczCoder)、
+[文件传輸肋手](https://github.com/CaesarAuditore)、
+[wanggaoxian](https://github.com/wanggaoxiantongxue)、
+[gy](https://github.com/Glyxc)、
+[Fomoll](https://github.com/fomoll)、
 
 ## 运行步骤
 
