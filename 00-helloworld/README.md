@@ -44,6 +44,7 @@
 [zhiwenxuan](https://github.com/zhiwenxuan)、
 [windraxb](https://github.com/windraxb)、
 [copy32](https://github.com/copy32)、
+[lczCoder](https://github.com/lczCoder)、
 [文件传輸肋手](https://github.com/CaesarAuditore)、
 [wanggaoxian](https://github.com/wanggaoxiantongxue)、
 [gy](https://github.com/Glyxc)、
