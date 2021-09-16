@@ -1,4 +1,4 @@
 module.exports = function (callback) {
     callback && callback('hi');
-    return 'helloworld';
+    return 'helloworld and Mrxiaotaotao';
 }
