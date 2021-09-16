@@ -1,4 +1,5 @@
 module.exports = function (callback) {
     callback && callback('hi');
-    return 'helloworld and Mrxiaotaotao';
+    console.log('helloworld and Mrxiaotaotao');
+    return 'helloworld';
 }
