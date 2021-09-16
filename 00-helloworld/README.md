@@ -51,6 +51,7 @@
 [gy](https://github.com/Glyxc)、
 [Fomoll](https://github.com/fomoll)、
 [jiuyue](https://github.com/SeptemberMaples)、
+[barrywu297](https://github.com/barrywu297)、
 
 ## 运行步骤
 
