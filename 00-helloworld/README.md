@@ -55,6 +55,7 @@
 [barrywu297](https://github.com/barrywu297)、
 [kennnys](https://github.com/HuiWang111)、
 [guojiabing](https://github.com/guojiabing)、
+[ArcticRug25](https://github.com/ArcticRug25)、
 
 ## 运行步骤
 
