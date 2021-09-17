@@ -55,6 +55,7 @@
 [barrywu297](https://github.com/barrywu297)、
 [kennnys](https://github.com/HuiWang111)、
 [guojiabing](https://github.com/guojiabing)、
+[banixing](https://github.com/banixing)、
 
 ## 运行步骤
 
