@@ -52,6 +52,8 @@
 [Fomoll](https://github.com/fomoll)、
 [jiuyue](https://github.com/SeptemberMaples)、
 [barrywu297](https://github.com/barrywu297)、
+[kennnys](https://github.com/HuiWang111)、
+[guojiabing](https://github.com/guojiabing)、
 
 ## 运行步骤
 
