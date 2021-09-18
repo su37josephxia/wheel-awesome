@@ -50,6 +50,11 @@
 [wanggaoxian](https://github.com/wanggaoxiantongxue)、
 [gy](https://github.com/Glyxc)、
 [Fomoll](https://github.com/fomoll)、
+[jiuyue](https://github.com/SeptemberMaples)、
+[BambooSword](https://github.com/BambooSword)、
+[barrywu297](https://github.com/barrywu297)、
+[kennnys](https://github.com/HuiWang111)、
+[guojiabing](https://github.com/guojiabing)、
 [liuzhw221](https://github.com/liuzhw221)、
 
 ## 运行步骤
