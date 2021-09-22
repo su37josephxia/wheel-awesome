@@ -58,6 +58,7 @@
 [aidm](https://github.com/aidm)、
 [yjh1342](https://github.com/yjh1342)、
 [尋找安多芬](https://github.com/season19840122)、
+[Lisen28](https://github.com/Lisen28)、
 [Robby](https://github.com/smalltee)、
 [ly长江七号](https://github.com/ly42273739)、
 [zhaosasa](https://github.com/zhaosasa)、
