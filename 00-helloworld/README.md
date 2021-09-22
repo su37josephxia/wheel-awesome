@@ -65,9 +65,10 @@
 [尋找安多芬](https://github.com/season19840122)、
 [Lisen28](https://github.com/Lisen28)、
 [Robby](https://github.com/smalltee)、
-[ly长江七号](https://github.com/ly42273739)、
+[ly 长江七号](https://github.com/ly42273739)、
 [zhaosasa](https://github.com/zhaosasa)、
 [NineDays](https://github.com/sayNo123)、
+[xiaotting](https://github.com/xiaotting)、
 
 ## 运行步骤
 
