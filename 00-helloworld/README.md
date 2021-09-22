@@ -55,6 +55,7 @@
 [barrywu297](https://github.com/barrywu297)、
 [kennnys](https://github.com/HuiWang111)、
 [guojiabing](https://github.com/guojiabing)、
+[aidm](https://github.com/aidm)、
 [yjh1342](https://github.com/yjh1342)、
 [尋找安多芬](https://github.com/season19840122)、
 
