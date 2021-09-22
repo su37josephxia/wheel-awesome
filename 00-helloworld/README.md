@@ -55,7 +55,8 @@
 [barrywu297](https://github.com/barrywu297)、
 [kennnys](https://github.com/HuiWang111)、
 [guojiabing](https://github.com/guojiabing)、
-[hzttw](https://github.com/hzttw)
+[hzttw](https://github.com/hzttw)、
+[banixing](https://github.com/banixing)、
 [liuzhw221](https://github.com/liuzhw221)、
 [aidm](https://github.com/aidm)、
 [yjh1342](https://github.com/yjh1342)、
