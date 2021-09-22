@@ -56,13 +56,24 @@
 [kennnys](https://github.com/HuiWang111)、
 [guojiabing](https://github.com/guojiabing)、
 [ArcticRug25](https://github.com/ArcticRug25)、
+[hzttw](https://github.com/hzttw)、
+[banixing](https://github.com/banixing)、
+[liuzhw221](https://github.com/liuzhw221)、
+[aidm](https://github.com/aidm)、
+[yjh1342](https://github.com/yjh1342)、
+[尋找安多芬](https://github.com/season19840122)、
+[Lisen28](https://github.com/Lisen28)、
+[Robby](https://github.com/smalltee)、
+[ly长江七号](https://github.com/ly42273739)、
+[zhaosasa](https://github.com/zhaosasa)、
+[NineDays](https://github.com/sayNo123)、
 
 ## 运行步骤
 
 - 如何下载代码？
 - 如何运行代码？
 - 如何使用 TDD(测试驱动方式)开发一个 Helloworld？
-- 如何给天天造轮子提交代码贡献？
+- 如何给天天造轮子提交代码贡献？`
 
 最近然叔的天天造轮子栏目得到了大家的欢迎，但是吃瓜的多，真正加进来的少呀，
 
