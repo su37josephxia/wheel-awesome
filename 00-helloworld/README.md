@@ -71,6 +71,7 @@
 [xiaotting](https://github.com/xiaotting)、
 [muxing123](https://github.com/muxing123)、
 [inlineHz](https://github.com/inlineHz)、
+[qzyqzy](https://github.com/qzyqzy)、
 
 ## 运行步骤
 
