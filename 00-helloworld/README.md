@@ -71,6 +71,7 @@
 [xiaotting](https://github.com/xiaotting)、
 [muxing123](https://github.com/muxing123)、
 [inlineHz](https://github.com/inlineHz)、
+[lzx](https://github.com/lzx)、
 [fyzhu](https://github.com/fyzhu)、
 [allen](https://github.com/liangle)、
 [jiangjj](https://github.com/rhythm022)
