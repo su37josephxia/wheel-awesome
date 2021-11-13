@@ -6,11 +6,15 @@
   "scripts": {
     "test": "jest",
     "watch": "jest --watchAll",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "jest": "^26.0.1"
+  },
+  "devDependencies": {
+    "husky": "^7.0.2"
   }
 }
