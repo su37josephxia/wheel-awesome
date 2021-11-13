@@ -82,6 +82,7 @@
 [BIGBEN888](https://github.com/BIGBEN888)、
 [xxmyyds](https://github.com/xxmyyds)、
 [Zp](https://github.com/CNZp)、
+[jimi](https://github.com/jimixy)、
 
 ## 运行步骤
 
