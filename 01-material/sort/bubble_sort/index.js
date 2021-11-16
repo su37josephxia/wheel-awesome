@@ -1,4 +1,4 @@
-module.exports = function bubble(arr) {
+module.exports = function bubble_sort(arr) {
   if (!Array.isArray(arr)) {
     return;
   }
