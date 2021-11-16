@@ -4,7 +4,7 @@
 
 # 参加算法刷题班群
 
-<img src="/su37josephxia/wheel-awesome/raw/master/assets/wx.png" style="width:300px"/>
+<img src="./assets/wx.png" style="width:300px"/>
 > ## <red>添加然叔微信 发送 [算法] </red>
 
 ## Talk is cheap. Show me the code.
