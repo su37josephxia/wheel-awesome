@@ -83,6 +83,7 @@
 [xxmyyds](https://github.com/xxmyyds)、
 [Zp](https://github.com/CNZp)、
 [amumua](https://github.com/linyuhong97)、
+[jimi](https://github.com/jimixy)、
 
 ## 运行步骤
 
