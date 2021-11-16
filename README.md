@@ -2,6 +2,11 @@
 
 # 每天造轮子系列
 
+# 参加算法刷题班群
+
+![](./assets/wx.png)
+> ## 发送 [算法]
+
 ## Talk is cheap. Show me the code.
 
 ![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3556bd78c0004d7598181c02659b35b8~tplv-k3u1fbpfcp-watermark.image)
