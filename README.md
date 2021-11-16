@@ -2,10 +2,13 @@
 
 # 每天造轮子系列
 
-# 参加算法刷题班群
+## 参加算法刷题班群
 
 <img src="./assets/wx.png" style="width:300px"/>
-> ## <red>添加然叔微信 发送 [算法] </red>
+
+> ## 添加【全栈然叔】 发送 [算法]
+
+
 
 ## Talk is cheap. Show me the code.
 
