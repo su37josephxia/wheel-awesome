@@ -1,4 +1,4 @@
-var net = require('net');
+const net = require('net');
 const res = `HTTP/1.1 200 OK
 Date: Sat, 04 Dec 2021 14:24:09 GMT
 Connection: keep-alive
@@ -7,7 +7,7 @@ Content-Length: 14
 
 <h1> Hello <h1>
 `
-var server = net.createServer(function(connection) { 
+const server = net.createServer(function(connection) { 
    console.log('client connected');
    connection.on('data', data => {
        console.log(data.toString())
