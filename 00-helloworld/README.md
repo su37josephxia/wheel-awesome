@@ -85,6 +85,7 @@
 [amumua](https://github.com/linyuhong97)、
 [jimi](https://github.com/jimixy)、
 [Acongm](https://github.com/Acongm)、
+[wangminhua-fe](https://github.com/wangminhua-fe)、
 
 ## 运行步骤
 
