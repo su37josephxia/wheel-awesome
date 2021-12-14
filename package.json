@@ -6,8 +6,7 @@
   "scripts": {
     "test": "jest",
     "watch": "jest --watchAll",
-    "coverage": "jest --coverage",
-    "prepare": "husky install"
+    "coverage": "jest --coverage"
   },
   "author": "",
   "license": "ISC",
