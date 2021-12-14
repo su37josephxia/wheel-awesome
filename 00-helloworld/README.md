@@ -85,7 +85,7 @@
 [amumua](https://github.com/linyuhong97)、
 [jimi](https://github.com/jimixy)、
 [Acongm](https://github.com/Acongm)、
-[Krishnan](https://github.com/lively-krishnan)
+[Krishnan](https://github.com/lively-krishnan)、
 
 ## 运行步骤
 
