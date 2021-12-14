@@ -85,6 +85,7 @@
 [amumua](https://github.com/linyuhong97)、
 [jimi](https://github.com/jimixy)、
 [Acongm](https://github.com/Acongm)、
+[krishnan](https://github.com/lively-krishnan/wheel-awesome)
 
 ## 运行步骤
 
