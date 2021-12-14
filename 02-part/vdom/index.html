@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <button id="btn-change">改变</button>
+    <script type="module">
+      // import {h} from './src/h.js'
+      import * as render from "./src/render.js";
+      import { createMount } from "./src/renderer.js";
+      import { createDiff } from "./src/diff.js";
+      const mounte = createMount(render);
+      const diff = createDiff(render);
+
+      // let v1 = {
+      //   tag: "h2",
+      //   props: {},
+      //   children: [
+      //     {
+      //       tag: "div",
+      //       children: "123",
+      //     },
+      //   ],
+      // };
+
+      // const v2 = {
+      //   tag: "h2",
+      //   props: {},
+      //   children: [
+      //     {
+      //       tag: "div",
+      //       children: "456",
+      //     },
+      //   ],
+      // };
+
+
+      let v1 = {
+        tag: "h2",
+        props: {},
+        children: '123',
+      };
+
+      const v2 = {
+        tag: "h2",
+        props: {},
+        children: '456',
+      };
+
+
+      const container = document.querySelector("#container");
+      v1 = mounte(v1, container);
+      setTimeout(() => {
+        diff(v1, v2);
+      }, 1000);
+    </script>
+  </body>
+</html>
