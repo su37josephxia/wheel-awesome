@@ -4,7 +4,6 @@ export function createText(text) {
 }
 
 export function remove(el, parent) {
-  console.log('remove...')
   parent.remove(el);
 }
 

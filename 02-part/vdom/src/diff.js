@@ -3,7 +3,6 @@ export const createDiff =
 
 
     const diff = (oldNode, newNode) =>  {
-      console.log('diff...')
       // 1. 如果 tag 都不一样的话，直接替换
       // 2. 如果 tag 一样的话
       //    1. 要检测 props 哪些有变化
@@ -11,7 +10,6 @@ export const createDiff =
       const { props: oldProps, children: oldChildren = [] } = oldNode;
       const { props: newProps, children: newChildren = [] } = newNode;
       if (oldNode.tag !== newNode.tag) {
-        console.log("标签置换.....");
         // 同层级比较
         oldNode.el.replaceWith(createElement(newNode.tag));
       } else {
