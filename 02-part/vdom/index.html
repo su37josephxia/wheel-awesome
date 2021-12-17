@@ -86,7 +86,8 @@
 
       let el;
       const render2 = (data) => {
-        el && (c2.innerHTML = '');
+        // el && (c2.innerHTML = '');
+        dom.setText(c2,'')
         el = dom.createElement("ul");
         data.map((v) => {
           const node = dom.createElement("li");
@@ -97,23 +98,23 @@
       };
 
       let i = 0;
-      let len = 10000;
+      let len = 10;
       const data = new Array(len).fill();
 
-      // render(data);
+      render(data);
 
-      // setInterval(() => {
-      //   data[i % len] = i++;
-      //   console.log("render");
-      //   render(data);
-      // }, 0);
+      setInterval(() => {
+        data[i % len] = i++;
+        console.log("render");
+        render(data);
+      }, 1000);
 
       // render2([0, 2, 3, 3]);
       // render2([0,6,6,6])
 
-      // setInterval(() => {
-      //   render2(data);
-      // }, 0);
+      setInterval(() => {
+        render2(data);
+      }, 1000);
     </script>
   </body>
 </html>

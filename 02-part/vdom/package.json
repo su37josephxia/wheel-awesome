@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
+  "module": "",
   "scripts": {
     "dev": "vite"
   },
@@ -10,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.5",
     "vite": "^2.7.2"
   }
 }

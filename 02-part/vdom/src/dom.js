@@ -1,6 +1,10 @@
 export function createText(text) {
-  console.log('createText...')
+  console.log("createText...");
   return new Text(text);
+}
+
+export function replaceElement(oldElement,newElement) {
+  oldElement.replaceWith(newElement);
 }
 
 export function remove(el, parent) {
@@ -8,17 +12,22 @@ export function remove(el, parent) {
 }
 
 export function createElement(type) {
-  console.log('createElement...')
+  console.log("createElement...");
   return document.createElement(type);
 }
 
 export function setText(el, text) {
-  console.log('setText...')
+  console.log("setText...");
   el.textContent = text;
 }
 
+
+export function setInnerHtml(el, text) {
+  el.innerHTML = text
+}
+
 export function insert(el, parent) {
-  console.log('insert...')
+  console.log("insert...");
   parent.append(el);
 }
 
