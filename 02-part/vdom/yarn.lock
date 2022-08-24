@@ -384,9 +384,9 @@ ms@2.1.2:
   integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
 
 nanoid@^3.1.30:
-  version "3.1.30"
-  resolved "https://registry.npmmirror.com/nanoid/download/nanoid-3.1.30.tgz?cache=0&sync_timestamp=1634168018270&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fnanoid%2Fdownload%2Fnanoid-3.1.30.tgz#63f93cc548d2a113dc5dfbc63bfa09e2b9b64362"
-  integrity sha1-Y/k8xUjSoRPcXfvGO/oJ4rm2Q2I=
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
+  integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
 
 object-keys@^1.0.12, object-keys@^1.1.1:
   version "1.1.1"
