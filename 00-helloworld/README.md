@@ -86,6 +86,7 @@
 [jimi](https://github.com/jimixy)、
 [Acongm](https://github.com/Acongm)、
 [朽木白](https://github.com/xiumubai)、
+[hackerabbit](https://github.com/hackerabbit)、
 
 ## 运行步骤
 
