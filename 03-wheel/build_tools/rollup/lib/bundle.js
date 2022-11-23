@@ -14,7 +14,7 @@ class Bundle {
     // 从入口的绝对路径找到模块定义
     let entryModule = this.fetchModule(this.entryPath);
 
-    // 把入口所有的语句展开 返回语句数组
+    // 展开所有import项
     // import {name,age}
     this.statements = entryModule.expandAllStatements();
 
@@ -61,7 +61,7 @@ class Bundle {
         bundle: this, // 上下文
       });
       return module;
-    }else {
+    } else {
       // TODO: 第三方库导入 目前不支持
     }
   }

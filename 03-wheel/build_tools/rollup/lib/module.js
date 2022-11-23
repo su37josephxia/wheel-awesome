@@ -92,6 +92,7 @@ class Module {
     this.ast.body.forEach((statement) => {
       // 忽略所有Import语句
       if (statement.type === "ImportDeclaration") {
+        console.log('return')
         return;
       }
 
@@ -126,7 +127,7 @@ class Module {
       statement._included = true;
       result.push(statement);
     }
-    console.log("result:", result);
+    // console.log("result:", result);
     return result;
   }
 
@@ -161,5 +162,8 @@ class Module {
       }
     }
   }
+
+
+
 }
 module.exports = Module;

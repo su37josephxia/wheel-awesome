@@ -94,7 +94,7 @@ function analyse(ast, magicString, module) {
         if (node._scope) {
           scope = node._scope;
         }
-        // 遇到导出节点
+        // 遇到声明节点
         if (node.type === "Identifier") {
           // 遇到 exports const a => node.name = 'a'
           console.log("Identifier:", node);
