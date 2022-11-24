@@ -33,14 +33,16 @@ function analyse(ast, magicString, module) {
     }
 
     Object.defineProperties(statement, {
+      _module: { value: module },
+
       // 变量定义
-      _defines: { value: {} },
+      _defines: { value: {} }, //当前的节点声明的变量 home
 
+      // _modifies: { value: {} },//修改的语句
       // 依赖外部变量
-      _dependsOn: { value: {} },
+      _dependsOn: { value: {} }, //当前模块没有定义的变量 当前节点依赖了哪些外部变量 name
 
-      // 此语句是否被打包Bundle 防止多次打包Bundle
-      _included: { value: false, writable: true },
+      _included: { value: false, writable: true }, //此语句是已经包含到输出语句里了
 
       // 变量语句
       _source: { value: magicString.snip(statement.start, statement.end) },
@@ -69,6 +71,8 @@ function analyse(ast, magicString, module) {
           case "VariableDeclaration":
             node.declarations.forEach(addToScope);
             break;
+          default:
+            break;
         }
         if (newScope) {
           // console.log("newScope", newScope);
@@ -95,15 +99,18 @@ function analyse(ast, magicString, module) {
         if (node._scope) {
           scope = node._scope;
         }
-        // 遇到声明节点
+        // 遇到变量节点
         if (node.type === "Identifier") {
           // 遇到 exports const a => node.name = 'a'
           // console.log("Identifier:", node);
           // 向上递归
-          const definingScope = scope.findDefiningScope(node.name);
-          if (!definingScope) {
-            statement._dependsOn[node.name] = true; // 表示属于外部依赖变量
-          }
+          // TODO
+          // const definingScope = scope.findDefiningScope(node.name);
+          // // console.log('definingScope ', node.name, definingScope)
+          // if (!definingScope) {
+          //   statement._dependsOn[node.name] = true; // 表示属于外部依赖变量
+          // }
+          statement._dependsOn[node.name] = true;
         }
       },
 

@@ -119,8 +119,8 @@ describe("AST Analyse方法", () => {
       )
 
       analyse(ast, magicString)
-      expect(ast.body[0]._dependsOn).toEqual({})
-      expect(ast.body[1]._dependsOn).toEqual({})
+      expect(ast.body[0]._dependsOn).toEqual({ a: true })
+      expect(ast.body[1]._dependsOn).toEqual({ a: true })
     })
 
     it("依赖依赖", () => {
@@ -132,8 +132,8 @@ describe("AST Analyse方法", () => {
       )
 
       analyse(ast, magicString)
-      expect(ast.body[0]._dependsOn).toEqual({})
-      expect(ast.body[1]._dependsOn).toEqual({})
+      expect(ast.body[0]._dependsOn).toEqual({ a: true })
+      expect(ast.body[1]._dependsOn).toEqual({ a: true })
       expect(ast.body[2]._dependsOn).toEqual({ b: true })
     })
 
@@ -149,9 +149,9 @@ describe("AST Analyse方法", () => {
       )
 
       analyse(ast, magicString)
-      expect(ast.body[0]._dependsOn).toEqual({})
-      expect(ast.body[1]._dependsOn).toEqual({})
-      expect(ast.body[2]._dependsOn).toEqual({ b: true })
+      expect(ast.body[0]._dependsOn).toEqual({ a: true })
+      expect(ast.body[1]._dependsOn).toEqual({ a: true })
+      expect(ast.body[2]._dependsOn).toEqual({ b: true, f: true, a: true })
     })
   })
 

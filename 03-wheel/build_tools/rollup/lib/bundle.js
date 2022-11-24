@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const Module = require("./module");
+const Module = require("./ast/module");
 const { default: MagicString } = require("magic-string");
 class Bundle {
   constructor(options) {

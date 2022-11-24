@@ -2,6 +2,7 @@ const MagicString = require("magic-string");
 const path = require("path");
 const { parse } = require("acorn");
 const analyse = require("./analyse");
+const SYSTEM_VARIABLES = ['console', 'log'];
 
 function has(obj, prop) {
     return Object.prototype.hasOwnProperty.call(obj, prop);
@@ -39,8 +40,8 @@ class Module {
                 let source = node.source.value;
                 let specifiers = node.specifiers;
                 specifiers.forEach((specifier) => {
-                    const name = specifier.imported && specifier.imported.name;
-                    const localName = specifier.local.name;
+                    const name = specifier.imported ? specifier.imported.name : '';
+                    const localName = specifier.local ? specifier.local.name : '';
                     this.imports[localName] = { name, localName, source };
                 });
                 // export var name = 'abc'
@@ -52,6 +53,7 @@ class Module {
                 // TODO: 没有仔细写 应该默认导入会有问题
                 let declaration = node.declaration;
                 if (declaration.type === "VariableDeclaration") {
+                    if (!declaration.declarations) return // 无声明直接返回，引入类等情况未考虑
                     let name = declaration.declarations[0].id.name;
                     this.exports[name] = {
                         node,
@@ -91,16 +93,12 @@ class Module {
 
         this.ast.body.forEach((statement) => {
             // 忽略所有Import语句
-            if (statement.type === "ImportDeclaration") {
-                return;
-            }
-
+            if (statement.type === "ImportDeclaration") return;
+            if (statement.type === "VariableDeclaration") return;
             // 查找变量声明
             let statements = this.expandStatement(statement);
-            allStatements.push(...statements, statement);
+            allStatements.push(...statements);
         });
-        // console.log('allStatements', allStatements)
-
         return allStatements;
     }
 
@@ -111,25 +109,19 @@ class Module {
      * @returns
      */
     expandStatement(statement) {
+        statement._included = true;
         let result = [];
         // !tree-sharking
         // 检查此句的外部依赖
         // 遍历所有依赖变量
         const dependencies = Object.keys(statement._dependsOn);
         dependencies.forEach((name) => {
-            statement._included = true;
-            // 提取依赖变量的声明部分
-            // import {a} from 'foo.js'
-            // ↓↓↓↓↓↓↓
-            // const a = 'a'
             const definition = this.define(name);
             result.push(...definition);
         });
+        // 添加自己
+        result.push(statement);
 
-        if (!statement._included) {
-            statement._included = true;
-            result.push(statement);
-        }
         // console.log("result:", result);
         return result;
     }
@@ -159,13 +151,20 @@ class Module {
             // 低啊用msg模块的define 目的返回
             return module.define(exportData.localName);
         } else {
-            // 本地变量
+            //获取当前的模块内定义的变量，以及定义语句
             let statement = this.definitions[name];
             // 此变量存在且没有被添加过
-            if (statement && !statement._included) {
-                return this.expandStatement(statement);
-            } else {
+            if (statement) {//如果有定义，
+                if (statement._included) {//是否包含过了，如果包含过了，直接返回空数组
+                    return [];
+                } else {
+                    return this.expandStatement(statement);//展开返回的结果 
+                    // return [statement]
+                }
+            } else if (SYSTEM_VARIABLES.includes(name)) {//是系统变量
                 return [];
+            } else {
+                throw new Error(`变量${name}既没有从外部导入，也没有在当前的模块内声明`);
             }
         }
     }

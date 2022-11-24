@@ -17,7 +17,7 @@ class Bundle {
         // 查找模块定义
         const entryModule = this.fetchModule(this.entryPath)
 
-        // 展开所有依赖
+        // 查找依赖
         this.statements = entryModule.expandAllStatements();
 
         // // 生成代码
