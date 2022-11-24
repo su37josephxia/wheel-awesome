@@ -65,8 +65,8 @@ class Module {
         // 调用分析模块
         // 根据当前语法树
         // 构筑作用域链对象
-        // _defines: 变量定义 const a = 'a'
-        // _dependsOn: 变量依赖
+        // _defines: 非语句块中变量定义 const a = 'a'
+        // _dependsOn: 外部变量依赖  也就是import的部分
         // _included: 此语句是否被打包Bundle 防止多次打包Bundle
         // _source: 语句字符串
         analyse(this.ast, this.code, this); // 找到_defines 和 _dependson

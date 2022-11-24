@@ -21,10 +21,11 @@ function analyse(ast, magicString, module) {
      * @param {*} declaration
      */
     function addToScope(declaration) {
+      // console.log('addToScope', declaration.id.name)
       var name = declaration.id.name; // 获取声明的变量
       scope.add(name);
       if (!scope.parent) {
-        // 如果此变量作用域不在父级作用域 即当前作用域
+        // 如果此变量不是全局作用域
         // 如果当前是全局作用域的话
         // 在全局作用域下声明全局变量
         statement._defines[name] = true;
@@ -35,7 +36,7 @@ function analyse(ast, magicString, module) {
       // 变量定义
       _defines: { value: {} },
 
-      // 变量依赖
+      // 依赖外部变量
       _dependsOn: { value: {} },
 
       // 此语句是否被打包Bundle 防止多次打包Bundle
@@ -70,7 +71,7 @@ function analyse(ast, magicString, module) {
             break;
         }
         if (newScope) {
-          console.log("newScope", newScope);
+          // console.log("newScope", newScope);
           // 当前节点声明的新作用域
           // 如果此节点生成一个新作用域
           Object.defineProperties(node, { _scope: { value: newScope } });
@@ -87,7 +88,7 @@ function analyse(ast, magicString, module) {
   });
   ast._scope = scope;
 
-  // 找出外部依赖关系 dependsOn
+  // 找出哪些变量需要外依赖
   ast.body.forEach((statement) => {
     walk(statement, {
       enter(node) {
@@ -97,7 +98,7 @@ function analyse(ast, magicString, module) {
         // 遇到声明节点
         if (node.type === "Identifier") {
           // 遇到 exports const a => node.name = 'a'
-          console.log("Identifier:", node);
+          // console.log("Identifier:", node);
           // 向上递归
           const definingScope = scope.findDefiningScope(node.name);
           if (!definingScope) {
