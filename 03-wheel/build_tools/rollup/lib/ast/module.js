@@ -17,7 +17,7 @@ class Module {
         this.bundle = bundle;
         // Parse阶段
         this.ast = parse(code, {
-            ecmaVersion: 6,
+            ecmaVersion: 7,
             sourceType: "module",
         });
         // Transfer
@@ -35,12 +35,12 @@ class Module {
 
         this.ast.body.forEach((node) => {
             if (node.type === "ImportDeclaration") {
-                // ex: import { a : b } from 'foo'
+                // ex: import { a as b } from 'foo'
                 let source = node.source.value;
                 let specifiers = node.specifiers;
                 specifiers.forEach((specifier) => {
-                    const name = specifier.imported.name; // a
-                    const localName = specifier.local.name; // b
+                    const name = specifier.imported && specifier.imported.name;
+                    const localName = specifier.local.name;
                     this.imports[localName] = { name, localName, source };
                 });
                 // export var name = 'abc'
@@ -71,7 +71,7 @@ class Module {
         // _source: 语句字符串
         analyse(this.ast, this.code, this); // 找到_defines 和 _dependson
 
-        // 查找外部依赖
+        // 查找模块中所有定义的变量
         this.definitions = {}; // 找到定义语句
         // 遍历找出每一个节点中的定义语句
         this.ast.body.forEach((statement) => {
@@ -83,7 +83,7 @@ class Module {
     }
 
     /**
-     * 根据Import递归所有模块
+     * 将声明附加到定义上
      * @returns
      */
     expandAllStatements() {
@@ -95,18 +95,18 @@ class Module {
                 return;
             }
 
-            // 根据所有变量被调用的情况展开
+            // 查找变量声明
             let statements = this.expandStatement(statement);
             allStatements.push(...statements, statement);
         });
-        console.log('allStatements', allStatements)
+        // console.log('allStatements', allStatements)
 
         return allStatements;
     }
 
 
     /**
-     * 展开单个语句节点
+     * 查找变量声明
      * @param {*} statement
      * @returns
      */
@@ -136,12 +136,13 @@ class Module {
 
 
     /**
-   * 查找变量声明
-   * @param {*} name
-   * @description 找出某个变量的声明部分
-   * @returns 声明部分
+    * 查找变量声明
+    * @param {*} name
+    * @description 找出某个变量的声明部分
+    * @returns 声明部分
    */
     define(name) {
+        // 此变量需要import
         if (has(this.imports, name)) {
             // import项的声明部分
             const importDeclaration = this.imports[name];
@@ -158,7 +159,9 @@ class Module {
             // 低啊用msg模块的define 目的返回
             return module.define(exportData.localName);
         } else {
+            // 本地变量
             let statement = this.definitions[name];
+            // 此变量存在且没有被添加过
             if (statement && !statement._included) {
                 return this.expandStatement(statement);
             } else {
