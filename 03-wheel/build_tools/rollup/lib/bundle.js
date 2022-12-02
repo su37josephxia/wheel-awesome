@@ -20,9 +20,7 @@ class Bundle {
 
     // 生成代码
     const { code } = this.generate();
-
-    console.log("==========output=============");
-    console.log(code);
+    console.log('code', code)
     // fs.writeFileSync(outputFileName, code, "utf-8");
   }
 
@@ -73,6 +71,8 @@ class Bundle {
   generate() {
     const magicString = new MagicString.Bundle();
     this.statements.forEach((statement) => {
+      // analyse.js
+      // _source: { value: magicString.snip(statement.start, 
       const source = statement._source.clone();
       if (statement.type === "ExportNamedDeclaration") {
         source.remove(statement.start, statement.declaration.start);
