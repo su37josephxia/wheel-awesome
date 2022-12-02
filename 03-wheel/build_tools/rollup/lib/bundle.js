@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const Module = require("./ast/module");
+const Module = require("./module");
 const { default: MagicString } = require("magic-string");
 class Bundle {
   constructor(options) {
@@ -16,12 +16,12 @@ class Bundle {
 
     // 展开所有import项
     // import {name,age}
-    this.statements = entryModule.expandAllStatements();
+    this.statements = entryModule.expandAllStatement();
 
     // 生成代码
     const { code } = this.generate();
-    console.log('code', code)
-    // fs.writeFileSync(outputFileName, code, "utf-8");
+    // console.log('code', code)
+    fs.writeFileSync(outputFileName, code, "utf-8");
   }
 
   /**
