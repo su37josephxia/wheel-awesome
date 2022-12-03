@@ -1,2 +1,2 @@
-import { add } from "./add.js";
-console.log(add(2, 4));
+import { a } from "./a.js"
+console.log(a());

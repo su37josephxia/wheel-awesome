@@ -102,21 +102,16 @@ class Module {
 
             // TODO
             // 加载模块
-            // import项的声明部分
-            const importDeclaration = this.imports[name];
-            // 获取msg模块 exports imports
-            // 读取声明模块
+            const importDeclaration = this.imports[name]
+
+            const source = importDeclaration.source
             const module = this.bundle.fetchModule(
-                importDeclaration.source,
+                source,
                 this.path
-            );
+            )
 
-            // this.exports['age'] =
-            const exportData = module.exports[importDeclaration.name];
-
-            // 低啊用msg模块的define 目的返回
-            return module.define(exportData.localName);
-
+            const exportData = module.exports[importDeclaration.name]
+            return module.define(exportData.localName)
         } else {
             // 本模块
             const statement = this.definitions[name]
