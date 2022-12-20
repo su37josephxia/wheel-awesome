@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const MyPlugin = require('./plugin/MyPlugin')
 module.exports = (env, args) => {
   return {
     profile: true,
@@ -36,6 +36,8 @@ module.exports = (env, args) => {
     },
 
     plugins: [
+      new MyPlugin({ p: 'abc' }),
+
       new HtmlWebpackPlugin({
         templateContent: `
   <!DOCTYPE html>
