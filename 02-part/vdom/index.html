@@ -7,15 +7,15 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="container"></div>
-    <button id="btn-change">改变</button>
+    <div>虚拟DOM</div>
+    <div id="c1"></div>
+    <div>DOM</div>
+    <div id="c2"></div>
     <script type="module">
       // import {h} from './src/h.js'
-      import * as render from "./src/render.js";
+      import * as dom from "./src/dom.js";
       import { createMount } from "./src/renderer.js";
       import { createDiff } from "./src/diff.js";
-      const mounte = createMount(render);
-      const diff = createDiff(render);
 
       // let v1 = {
       //   tag: "h2",
@@ -39,24 +39,81 @@
       //   ],
       // };
 
+      // let v1 = {
+      //   tag: "h2",
+      //   props: {},
+      //   children: "123",
+      // };
 
-      let v1 = {
-        tag: "h2",
-        props: {},
-        children: '123',
+      // let v2 = {
+      //   tag: "h2",
+      //   props: {},
+      //   children: "456",
+      // };
+
+      const createRender = (dom, container) => {
+        const mountElement = createMount(dom);
+        const diff = createDiff(dom);
+        let vnode;
+        return (data) => {
+          // 真实Dom操作
+
+          // 创建虚拟Dom
+          // TODO: 改为patch
+          const mount = createMount(dom);
+          const newNode = {
+            tag: "ul",
+            props: {},
+            children: data.map((v) => ({
+              tag: "li",
+              children: String(v),
+            })),
+          };
+          if (vnode) {
+            // 打补丁
+            diff(vnode, newNode);
+          } else {
+            //
+            mountElement(newNode, container);
+            vnode = newNode;
+          }
+        };
       };
 
-      const v2 = {
-        tag: "h2",
-        props: {},
-        children: '456',
+      const c1 = document.querySelector("#c1");
+      const c2 = document.querySelector("#c2");
+      const render = createRender(dom, c1);
+
+      let el;
+      const render2 = (data) => {
+        // el && (c2.innerHTML = '');
+        dom.setText(c2,'')
+        el = dom.createElement("ul");
+        data.map((v) => {
+          const node = dom.createElement("li");
+          dom.insert(dom.createText(String(v)), node);
+          dom.insert(node, el);
+        });
+        dom.insert(el, c2);
       };
 
+      let i = 0;
+      let len = 10;
+      const data = new Array(len).fill();
 
-      const container = document.querySelector("#container");
-      v1 = mounte(v1, container);
-      setTimeout(() => {
-        diff(v1, v2);
+      render(data);
+
+      setInterval(() => {
+        data[i % len] = i++;
+        console.log("render");
+        render(data);
+      }, 1000);
+
+      // render2([0, 2, 3, 3]);
+      // render2([0,6,6,6])
+
+      setInterval(() => {
+        render2(data);
       }, 1000);
     </script>
   </body>
