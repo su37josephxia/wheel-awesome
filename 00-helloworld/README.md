@@ -84,8 +84,11 @@
 [Zp](https://github.com/CNZp)、
 [amumua](https://github.com/linyuhong97)、
 [jimi](https://github.com/jimixy)、
+[joe](https://github.com/joeyoyo)、
 [Acongm](https://github.com/Acongm)、
 [liangdaozheng](https://github.com/liangdaozheng)、
+[Limeijuan](https://github.com/Limeijuan)、
+[passerby0](https://github.com/passerby0)、
 [精灵淡](https://github.com/jinglingdan)、
 [lingfeng](https://github.com/lingfengjgf)、
 [朽木白](https://github.com/xiumubai)、
