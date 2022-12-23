@@ -9,7 +9,6 @@ describe("AST Scope函数", () => {
      */
     const Scope = require("../scope.js");
     const root = new Scope({
-        
     });
     root.add("a");
     const child = new Scope({

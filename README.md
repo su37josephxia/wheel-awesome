@@ -4,7 +4,7 @@
 
 ## 参加算法刷题班群
 
-<img src="./assets/wx.png" style="width:300px"/>
+<img src="./assets/wx.png" style="width:100%"/>
 
 > ## 添加【全栈然叔】 发送 [算法]
 
