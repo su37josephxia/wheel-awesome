@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>虚拟DOM</div>
+    <div id="c1"></div>
+    <div>DOM</div>
+    <div id="c2"></div>
+    <script type="module">
+      // import {h} from './src/h.js'
+      import * as dom from "./src/dom.js";
+      import { createMount } from "./src/renderer.js";
+      import { createDiff } from "./src/diff.js";
+
+      // let v1 = {
+      //   tag: "h2",
+      //   props: {},
+      //   children: [
+      //     {
+      //       tag: "div",
+      //       children: "123",
+      //     },
+      //   ],
+      // };
+
+      // const v2 = {
+      //   tag: "h2",
+      //   props: {},
+      //   children: [
+      //     {
+      //       tag: "div",
+      //       children: "456",
+      //     },
+      //   ],
+      // };
+
+      // let v1 = {
+      //   tag: "h2",
+      //   props: {},
+      //   children: "123",
+      // };
+
+      // let v2 = {
+      //   tag: "h2",
+      //   props: {},
+      //   children: "456",
+      // };
+
+      const createRender = (dom, container) => {
+        const mountElement = createMount(dom);
+        const diff = createDiff(dom);
+        let vnode;
+        return (data) => {
+          // 真实Dom操作
+
+          // 创建虚拟Dom
+          // TODO: 改为patch
+          const mount = createMount(dom);
+          const newNode = {
+            tag: "ul",
+            props: {},
+            children: data.map((v) => ({
+              tag: "li",
+              children: String(v),
+            })),
+          };
+          if (vnode) {
+            // 打补丁
+            diff(vnode, newNode);
+          } else {
+            //
+            mountElement(newNode, container);
+            vnode = newNode;
+          }
+        };
+      };
+
+      const c1 = document.querySelector("#c1");
+      const c2 = document.querySelector("#c2");
+      const render = createRender(dom, c1);
+
+      let el;
+      const render2 = (data) => {
+        // el && (c2.innerHTML = '');
+        dom.setText(c2,'')
+        el = dom.createElement("ul");
+        data.map((v) => {
+          const node = dom.createElement("li");
+          dom.insert(dom.createText(String(v)), node);
+          dom.insert(node, el);
+        });
+        dom.insert(el, c2);
+      };
+
+      let i = 0;
+      let len = 10;
+      const data = new Array(len).fill();
+
+      render(data);
+
+      setInterval(() => {
+        data[i % len] = i++;
+        console.log("render");
+        render(data);
+      }, 1000);
+
+      // render2([0, 2, 3, 3]);
+      // render2([0,6,6,6])
+
+      setInterval(() => {
+        render2(data);
+      }, 1000);
+    </script>
+  </body>
+</html>

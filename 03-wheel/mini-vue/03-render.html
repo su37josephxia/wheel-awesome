@@ -1,0 +1,83 @@
+<html lang="en">
+  <body>
+    <div id="app"></div>
+    <script src="./reactivity/index.js"></script>
+    <script src="./runtime/h.js"></script>
+    <script src="./runtime/renderer.js"></script>
+    <script>
+      const Vue = {
+        createApp(config) {
+          return {
+            mount: function (container) {
+              const dom = document.querySelector(container);
+              // 生成渲染函数
+              //   const render = compile(config.template);
+
+              const setupResult = config.setup();
+              const render = config.render(setupResult);
+
+              // 修改
+              // effective = () => render(setupResult, dom);
+              //   watchEffect(() => render(setupResult, dom));
+              //   render(setupResult, dom);
+
+              let isMounted = false;
+              let prevSubTree;
+              watchEffect(() => {
+                if (!isMounted) {
+                   // clear content before mounting
+                     dom.innerHTML = "";
+                  // mount
+                  isMounted = true;
+                  const subTree = config.render(setupResult);
+                  prevSubTree = subTree;
+                  mountElement(subTree, dom);
+                } else {
+                  // update
+                  const subTree = config.render(setupResult);
+                  diff(prevSubTree, subTree);
+                  prevSubTree = subTree;
+                }
+              });
+            },
+          };
+        },
+      };
+      // 定义响应函数
+      let effective;
+      const App = {
+        // 视图
+        // template: `
+        //         <input v-model="message"/>
+        //         <button @click='click'>{{message}}</button>
+        //     `,
+
+        render(content) {
+          return h("div", null, [
+            h("div", null, String(content.state.message)),
+            h(
+              "button",
+              {
+                onClick: content.click,
+              },
+              "click"
+            ),
+          ]);
+        },
+
+        setup() {
+          const state = reactive({
+            message: "Hello Vue 3!!",
+          });
+
+          const click = () => {
+            state.message = state.message.split("").reverse().join("");
+          };
+          return { state, click };
+        },
+      };
+      const { createApp } = Vue;
+      createApp(App).mount("#app");
+    </script>
+  </body>
+</html>

@@ -13,5 +13,8 @@
     "acorn": "^8.3.0",
     "magic-string": "^0.25.7",
     "rollup": "^2.51.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.10.0"
   }
 }

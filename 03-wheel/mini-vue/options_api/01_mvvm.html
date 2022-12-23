@@ -1,0 +1,82 @@
+<html lang="en">
+
+<body>
+    <div id='app'></div>
+    <script>
+        const Vue = {
+            createApp(config) {
+
+                // 编译过程
+                const compile = (template) => (observed, dom) => {
+
+                    // 重新渲染
+                    let input = dom.querySelector('input')
+                    if (!input) {
+                        input = document.createElement('input')
+                        input.setAttribute('value', observed.message)
+                        input.addEventListener('keyup', function () {
+                            observed.message = this.value
+                        })
+                        dom.appendChild(input)
+                    }
+                    let button = dom.querySelector('button')
+                    if (!button) {
+                        console.log('create button')
+                        button = document.createElement('button')
+                        button.addEventListener('click', () => {
+                            return config.methods.click.apply(observed)
+                        })
+                        dom.appendChild(button)
+                    }
+                    button.innerText = observed.message
+                }
+                // 生成渲染函数
+                const render = compile()
+
+                // 定义响应函数
+                let effective
+
+                // 数据劫持
+                observed = new Proxy(config.data(), {
+                    set(target, key, value, receiver) {
+                        const ret = Reflect.set(target, key, value, receiver)
+                        // 触发函数响应
+                        effective()
+                        return ret
+                    },
+                })
+
+                return {
+                    mount: function (container) {
+                        const dom = document.querySelector(container)
+                        effective = () => render(observed, dom)
+                        render(observed, dom)
+                    }
+                }
+            }
+        }
+        const App = {
+            // 视图
+            template: `
+                <input v-model="message"/>
+                <button @click='click'>{{message}}</button>
+            `,
+            data() {
+                return {
+                    message: 'Hello Vue 3!!'
+                }
+            },
+            methods: {
+                click() {
+                    this.message = this.message.split('').reverse().join('')
+                }
+            }
+        }
+        const {
+            createApp
+        } = Vue
+        createApp(App).mount('#app')
+    </script>
+</body>
+
+</html>

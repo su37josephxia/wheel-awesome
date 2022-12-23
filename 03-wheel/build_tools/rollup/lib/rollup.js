@@ -1,10 +1,9 @@
-const Bundle = require("./bundle");
+const Bundle = require('./bundle')
 
 function rollup(entry, outputFileName) {
-  // 打包对象
-  const bundle = new Bundle({ entry });
-  // 调用build方法进行编译
-  bundle.build(outputFileName);
+    const bundle = new Bundle({ entry })
+
+    bundle.build(outputFileName)
 }
 
-module.exports = rollup;
+module.exports = rollup
