@@ -86,6 +86,7 @@
 [jimi](https://github.com/jimixy)、
 [joe](https://github.com/joeyoyo)、
 [Acongm](https://github.com/Acongm)、
+[一饮一啄](https://github.com/c412216887)、
 [JuneJH](https://github.com/JuneJH)、
 [Chtistina](https://github.com/781288772)、
 [krishnan](https://github.com/lively-krishnan)
