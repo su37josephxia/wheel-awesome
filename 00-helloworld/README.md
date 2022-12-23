@@ -86,6 +86,11 @@
 [jimi](https://github.com/jimixy)、
 [Acongm](https://github.com/Acongm)、
 [Limeijuan](https://github.com/Limeijuan)、
+[passerby0](https://github.com/passerby0)、
+[精灵淡](https://github.com/jinglingdan)、
+[lingfeng](https://github.com/lingfengjgf)、
+[朽木白](https://github.com/xiumubai)、
+[麦克JIO丹](https://github.com/MIKE-27233)、
 
 ## 运行步骤
 
