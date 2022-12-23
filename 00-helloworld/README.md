@@ -86,6 +86,7 @@
 [jimi](https://github.com/jimixy)、
 [joe](https://github.com/joeyoyo)、
 [Acongm](https://github.com/Acongm)、
+[wangminhua-fe](https://github.com/wangminhua-fe)、
 [新](https://github.com/new-wang)、
 [liangdaozheng](https://github.com/liangdaozheng)、
 [Limeijuan](https://github.com/Limeijuan)、
