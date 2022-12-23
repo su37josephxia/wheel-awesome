@@ -161,23 +161,27 @@ class FullPromise extends BasePromise {
 
       if ( this.status === PENDING ) {
         this.onResolvedCallbacks.push(() => { 
-          try {
-            const x = onFulfilled( this.value );
-            resolvePromise( promise2, x, resolve, reject );
-          }
-          catch ( error ) {
-            reject( error );
-          }
+          setTimeout(() => {
+            try {
+              const x = onFulfilled( this.value );
+              resolvePromise( promise2, x, resolve, reject );
+            }
+            catch ( error ) {
+              reject( error );
+            }
+          })
         });
 
         this.onRejectedCallbacks.push(() => { 
-          try {
-            const x = onRejected( this.reason );
-            resolvePromise( promise2, x, resolve, reject );
-          }
-          catch ( error ) {
-            reject( error );
-          } 
+          setTimeout(() => {
+            try {
+              const x = onRejected( this.reason );
+              resolvePromise( promise2, x, resolve, reject );
+            }
+            catch ( error ) {
+              reject( error );
+            } 
+          })
         });
       }
 
@@ -187,5 +191,15 @@ class FullPromise extends BasePromise {
   }
 }
 
+FullPromise.deferred = function () {
+  var result = {};
+  result.promise = new FullPromise(function (resolve, reject) {
+    result.resolve = resolve;
+    result.reject = reject;
+  });
 
+  return result;
+}
+
+// module.exports = FullPromise;
 module.exports = { BasePromise, FullPromise }
