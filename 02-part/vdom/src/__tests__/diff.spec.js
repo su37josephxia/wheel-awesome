@@ -1,5 +1,3 @@
-import { createDiff } from "../diff.js";
-
 describe("Diff 算法", () => {
   function createDom() {
     const fn = jest.fn();
