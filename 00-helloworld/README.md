@@ -86,6 +86,7 @@
 [jimi](https://github.com/jimixy)、
 [joe](https://github.com/joeyoyo)、
 [Acongm](https://github.com/Acongm)、
+[liangdaozheng](https://github.com/liangdaozheng)、
 [Limeijuan](https://github.com/Limeijuan)、
 [passerby0](https://github.com/passerby0)、
 [精灵淡](https://github.com/jinglingdan)、
