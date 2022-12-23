@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="container"></div>
+  <button id="btn-change">改变</button>
+
+  <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
+  <script>
+    const data = [{
+        name: "张三",
+        age: "20",
+        address: "北京"
+      },
+      {
+        name: "李四",
+        age: "21",
+        address: "武汉"
+      },
+      {
+        name: "王五",
+        age: "22",
+        address: "杭州"
+      },
+    ];
+    //渲染函数
+    function render(data) {
+      const $container = $('#container');
+      $container.html('');
+      const $table = $('<table>');
+      // 重绘一次
+      $table.append($('<tr><td>name</td><td>age</td><td>address</td></tr>'));
+      data.forEach(item => {
+        //每次进入都重绘
+        $table.append($(`<tr><td>${item.name}</td><td>${item.age}</td><td>${item.address}</td></tr>`))
+      })
+      $container.append($table);
+    }
+    
+    $('#btn-change').click(function () {
+      data[1].age = 30;
+      data[2].address = '深圳';
+      render(data);
+    });
+    let i= 0
+    setInterval(() => {
+      data[i % 4].age = i++;
+      render(data);
+    },10)
+
+  </script>
+</body>
+</html>
+
