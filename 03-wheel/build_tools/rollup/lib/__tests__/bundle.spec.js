@@ -11,6 +11,34 @@ describe('测试 Bundle', () => {
         expect(module.code.toString()).toBe(`const a = 1;`)
     })
 
+    test("主模块路径", () => {
+        const bundle = new Bundle({ entry: "./a.js" });
+        fs.readFileSync.mockReturnValueOnce("const a = 1");
+        bundle.fetchModule("/index.js");
+        const { calls } = fs.readFileSync.mock;
+        expect(calls[0][0]).toEqual("/index.js");
+    });
+    describe("非主模块", () => {
+        test("测试绝对路径", () => {
+            const bundle = new Bundle({ entry: "./a.js" });
+            fs.readFileSync.mockReturnValueOnce("const a = 1");
+            bundle.fetchModule("/index.js", "main.js");
+            const { calls } = fs.readFileSync.mock;
+            //   console.log(calls[0][0]);
+            expect(calls[0][0]).toEqual("/index.js");
+        });
+        test("测试相对路径", () => {
+            const bundle = new Bundle({ entry: "./a.js" });
+            fs.readFileSync.mockReturnValueOnce("const a = 1");
+            const importee = path.resolve("./bundle.js");
+            // console.log({ importee });
+            bundle.fetchModule("../bundle.js", "./a/main.js");
+            const { calls } = fs.readFileSync.mock;
+            //   console.log(calls[0][0]);
+            expect(calls[0][0]).toEqual(importee);
+        });
+    });
+
     describe('build', () => {
         test('单条语句', () => {
             const bundle = new Bundle({ entry: 'index.js' })
