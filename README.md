@@ -52,7 +52,7 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
   - [x] [时间旅行](https://www.bilibili.com/video/BV1Tr4y1w7v5?p=3)
   - [x] [Mixin](https://juejin.cn/post/6891935359651807239)
   - [x] 路由-策略模式
-  - [x] 订阅发布
+  - [x] [订阅发布](/02-part/subscribe/)
   - [x] [DI 容器](/01-material/di/)
   - [x] [IOC](/01-material/ioc/)
   - [ ] 原生 Ajax
