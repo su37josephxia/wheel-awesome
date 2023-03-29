@@ -34,32 +34,37 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
 
 - 材料 material - Javascript 基础 、算法、设计模式
   - [x] [Compose](https://juejin.cn/post/6893338774088974343)
-  - [ ] Promise
-  - [ ] Promise.all/race
-  - [ ] new
-  - [ ] thunk
+  - [x] Promise
+  - [x] Promise.all/race
+  - [x] new
+  - [x] thunk
   - [x] call/apply/bind
   - [ ] Object.create
   - [ ] 深拷贝、浅拷贝
   - [ ] 排序（冒泡、快排、选择）
 - 零部件 part - 框架中的独立部分
+
   - [x] [模板引擎](https://www.bilibili.com/video/BV1Tr4y1w7v5?p=1)
+  - [x] 虚拟 DOM
   - [x] [防抖与节流](https://juejin.im/post/6885250789825052679)
   - [x] [响应式原理](https://juejin.im/post/6885546581438201869)
   - [x] [统一状态管理](https://juejin.im/post/6886002492577234952)
   - [x] [时间旅行](https://www.bilibili.com/video/BV1Tr4y1w7v5?p=3)
   - [x] [Mixin](https://juejin.cn/post/6891935359651807239)
+  - [x] 路由-策略模式
+  - [x] 订阅发布
+  - [x] DI 容器
   - [ ] 原生 Ajax
-  - [ ] 路由
-  - [ ] 订阅发布
+
 - 轮子 wheel - 著名框架的简写版
   - [x] [vue](https://www.bilibili.com/video/BV1hV411q7S8)
-  - [ ] react
-  - [ ] 浏览器
-  - [ ] HTTP 服务器
-  - [x] [webpack](https://www.bilibili.com/video/BV1dV411p7gp)
-  - [x] [rollup](https://www.bilibili.com/video/BV1Df4y1n777)
+  - [x] HTTP 协议
+  - [x] [Webpack](https://www.bilibili.com/video/BV1dV411p7gp)
+  - [x] [Rollup](https://www.bilibili.com/video/BV1Df4y1n777)
+  - [x] [Vite]
   - [ ] axios
+    - [ ] react
+  - [ ] 浏览器
 
 ---
 
