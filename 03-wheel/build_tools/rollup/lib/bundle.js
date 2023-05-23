@@ -28,7 +28,7 @@ class Bundle {
             // 绝对路径 '/abc/abc'
             // 相对路径 '../abc'
             if (path.isAbsolute(importee)) {
-                router = importee
+                route = importee
             } else {
                 // 相对路径
                 route = path.resolve(
