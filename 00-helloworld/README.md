@@ -99,7 +99,7 @@
 [lingfeng](https://github.com/lingfengjgf)、
 [朽木白](https://github.com/xiumubai)、
 [麦克JIO丹](https://github.com/MIKE-27233)、
-[小北](https://github.com/xb-fight)、
+[小北1](https://github.com/xb-fight)、
 
 ## 运行步骤
 
