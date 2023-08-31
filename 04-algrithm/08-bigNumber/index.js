@@ -1,3 +1,7 @@
+/**
+ * 相关文章地址：https://juejin.cn/post/7273141970057543717
+ */
+
 function minus(a1, a2) {
   let carry = 0;
   let i = a1.length - 1;
