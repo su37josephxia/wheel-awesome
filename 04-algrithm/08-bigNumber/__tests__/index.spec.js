@@ -1,4 +1,4 @@
-const { bigAdd, bigMin } = require("../20230826大数加减");
+const { bigAdd, bigMin } = require("../index");
 
 describe("大数加减", () => {
   describe("加法", () => {

@@ -142,7 +142,7 @@ function bigMin(a1, a2) {
     // 小减大，负数
     (a1[0] === "-" && a2[0] === "-") ||
     // 小减大，负数
-    (!a1[0] === "-" && !a2[0] === "-")
+    (a1[0] !== "-" && a2[0] !== "-")
   ) {
     if (compare(a1, a2) < 0) {
       // -123 - -12
@@ -182,8 +182,9 @@ function bigMin(a1, a2) {
     if (compare(a1, a2) > 0) {
       res = minus(a1, a2);
     } else {
+      let tmp = a1;
       a1 = a2;
-      a2 = a1;
+      a2 = tmp;
       res = minus(a1, a2);
     }
   }
