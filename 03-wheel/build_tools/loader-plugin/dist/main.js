@@ -15,7 +15,7 @@
   \***********************/
 /***/ (() => {
 
-eval("\n      let style = document.createElement('style');\n      style.innerHTML = \"html h1 {\\n  color: blue;\\n}\\n\";\n      document.head.appendChild(style)\n    \n\n//# sourceURL=webpack://loader/./src/less.less?");
+eval("var style = document.createElement('style');\n    style.innerHTML = \"html h1 {\\n  color: blue;\\n}\\n\";\n    document.head.appendChild(style);\n    \n\n//# sourceURL=webpack://loader-plugin/./src/less.less?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("\n      let style = document.createElement('style');\n      style.innerHTM
   \***********************/
 /***/ (() => {
 
-eval("\n      let style = document.createElement('style');\n      style.innerHTML = \"html {\\n    background-color:red;\\n}\";\n      document.head.appendChild(style)\n    \n\n//# sourceURL=webpack://loader/./src/style.css?");
+eval("var style = document.createElement('style');\n    style.innerHTML = \"html {\\n    background-color: red;\\n}\";\n    document.head.appendChild(style);\n    \n\n//# sourceURL=webpack://loader-plugin/./src/style.css?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("\n      let style = document.createElement('style');\n      style.innerHTM
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _less_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./less.less */ \"./src/less.less\");\n/* harmony import */ var _less_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_less_less__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconsole.log('hello...')\n\n//# sourceURL=webpack://loader/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _less_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./less.less */ \"./src/less.less\");\n/* harmony import */ var _less_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_less_less__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconsole.log('Hello Webpack')\n\n//# sourceURL=webpack://loader-plugin/./src/index.js?");
 
 /***/ })
 

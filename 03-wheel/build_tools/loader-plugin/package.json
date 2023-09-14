@@ -1,5 +1,5 @@
 {
-  "name": "loader",
+  "name": "loader-plugin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,12 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "html-webpack-plugin": "^5.5.0",
-    "less": "^4.1.3",
-    "loader-utils": "^3.2.1"
+    "html-webpack-plugin": "^5.5.3",
+    "less": "^4.2.0",
+    "webpack": "^5.88.2"
   },
   "devDependencies": {
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.1.4"
   }
 }

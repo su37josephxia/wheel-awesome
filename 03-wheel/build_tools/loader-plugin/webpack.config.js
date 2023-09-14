@@ -1,57 +1,44 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MyPlugin = require('./plugin/MyPlugin')
+const ModuleMainfestPlugin = require("./plugins/ModuleMainfestPlugin");
 module.exports = (env, args) => {
-  return {
-    profile: true,
-    mode: "development", // 环境模式
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: [
-            // './loader/style-loader'
-
-            {
-              loader: './loader/style-loader?a=xx',
-              options: {
-                op: 'abc', // 关闭项目运行时的类型检查
-              },
-            },
-          ],
+    return {
+        profile: true,
+        mode: "development", // 环境模式
+        module: {
+            rules: [
+                {
+                    test: /\.css$/,
+                    use: ['./loaders/style-loader.js']
+                }, {
+                    test: /\.less$/,
+                    use: [
+                        './loaders/style-loader.js',
+                        './loaders/less-loader.js']
+                }
+            ]
         },
-
-        {
-          test: /\.less/,
-          use: [
-            {
-              loader: './loader/style-loader.js',
-            },
-            {
-              loader: path.resolve(__dirname, "loader", "less-loader"),
-            },
-          ],
-        }
-      ]
-    },
-
-    plugins: [
-      new MyPlugin({ p: 'abc' }),
-
-      new HtmlWebpackPlugin({
-        templateContent: `
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8">
-      <title>Webpack App</title>
-    </head>
-    <body>
-      <h1>手写Loader</h1>
-    </body>
-  </html>
+        plugins: [
+            new HtmlWebpackPlugin({
+                templateContent: `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Webpack App</title>
+</head>
+<body>
+    <div id="app" />
+    <h1>Webpack App</h1>
+</body>
+</html>
       `,
-      }),
-    ],
-  };
+            }),
+
+            new ModuleMainfestPlugin({
+                outputDir: './dist',
+                fileName: 'manifest.json'
+            })
+        ],
+    };
 };
