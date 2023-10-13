@@ -26,7 +26,8 @@ Linux 的创始人 Linus Torvalds 在 2000-08-25 给 linux-kernel 邮件列表�
 
 ## 天才榜
 
-[Ubun21](https://github.com/Ubun21/)
+[Victor](https://github.com/xiaowu55)
+
 
 ## 造轮子计划
 
