@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks: true,
   title: "WHEEL-AWESOME",
   description: "Talk is cheap. Show me the code.",
   themeConfig: {
@@ -27,7 +28,7 @@ export default defineConfig({
         items: [
           { text: 'Mixin(混入)', link: '/02-part/mixin/README.md' },
           { text: 'Reactivity(响应式)', link: '/02-part/reactivity/README.md' },
-          { text: 'Template(模版引擎)', link: '/02-part/template/README.md' },
+          // { text: 'Template(模版引擎)', link: '/02-part/template/README.md' },
           { text: 'Vdom(虚拟Dom)', link: '/02-part/vdom/README.md' },
           { text: 'Subscribe(响应式)', link: '/02-part/subscribe/README.md' },
         ]

@@ -2,7 +2,7 @@ English | [简体中文](./README.md)
 
 # Compose's N ways to use
 
-## ![Talk is cheap. Show me the code.](assets/talk.jpeg)
+## ![Talk is cheap. Show me the code.]
 
 Linus Torvalds, the founder of Linux, mentioned in an email to the linux-kernel mailing list on August 25, 2000:
 

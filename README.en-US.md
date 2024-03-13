@@ -14,11 +14,11 @@ One wheel a day, and just do it.
 
 ## Official account Continuous promotion
 
-![image-20201016171059721](assets/image-20201016171059721.png)
+<!-- ![image-20201016171059721](assets/image-20201016171059721.png) -->
 
 ## Nail communication group
 
-![image-20201016171318330](assets/image-20201016171318330.png)
+<!-- ![image-20201016171318330](assets/image-20201016171318330.png) -->
 
 
 
