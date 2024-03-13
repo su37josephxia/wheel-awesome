@@ -4,6 +4,7 @@ package-lock
 yarn-lock
 .env
 package-lock.json
+.vitepress/cache/*
 
 # local env files
 .env.local
