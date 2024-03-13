@@ -15,10 +15,10 @@ const p2 = new Promise((resolve, reject) => {
 it('Promise.all全部返回成功测试', (done) => {
   Promise.all([p1, p2, 3, 4, 5]).then(data => {
     console.log('resolve: ', data);
-    expect(data).toEqual([ '1', '2', 3, 4, 5 ]);
+    expect(data).toEqual(['1', '2', 3, 4, 5]);
     done();
   }, err => {
-    console.log('reject: ', err);
+    // console.log('reject: ', err);
   });
 });
 
@@ -30,7 +30,7 @@ const p3 = new Promise((resolve, reject) => {
 
 it('Promise.all其中一个返回失败测试', (done) => {
   Promise.all([p1, p2, p3, 3, 4]).then(data => {
-    console.log('resolve:', data);
+    // console.log('resolve:', data);
   }, err => {
     expect(err).toBe('fail');
     done();
